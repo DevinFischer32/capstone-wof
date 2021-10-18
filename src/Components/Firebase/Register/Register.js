@@ -21,7 +21,7 @@ function Register(props) {
   };
   useEffect(() => {
     if (loading) return;
-    if (user) history.replace("/dashboard");
+    if (user) history.replace("/wheeloffortune");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading]);
   return (
