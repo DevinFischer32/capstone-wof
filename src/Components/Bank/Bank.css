@@ -1,0 +1,23 @@
+.container-b {
+  background-color: cornflowerblue;
+  bottom: 0;
+  border: 0.2rem solid black;
+  justify-content: center;
+  position: absolute;
+  margin: 1rem;
+  right: 0;
+  width: 15rem;
+  height: 10vh;
+}
+
+#username {
+  background-color: crimson;
+  margin: 0.2rem;
+}
+
+#bank {
+  background-color: darkgoldenrod;
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}
