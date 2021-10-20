@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
-// import "./Dashboard.css";
-// import "../Keyboard/Keyboard.css";
-// import "../SpinWheel/SpinWheel.css";
 import { auth, db } from "../Firebase/firebase";
 import Setting from "../Setting/Setting";
 import settingIcon from "../Logos/settings-icon.png";
@@ -17,13 +14,14 @@ function Dashboard() {
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const [guess, setGuess] = useState([]);
-  const [gameWord, setgameWord] = useState({});
-
+  const [gameObject, setgameObject] = useState({});
+  const [splitWord, setsplitWord] = useState([]);
   const [setting, setSetting] = useState(true);
   const [spin, setSpin] = useState(true);
 
   const history = useHistory();
 
+  // Firebase auth login
   const fetchUserName = async () => {
     try {
       const query = await db
@@ -42,15 +40,29 @@ function Dashboard() {
     if (loading) return;
     if (!user) return history.replace("/");
     fetchUserName();
+    // Gets random word from db
     getRandomPhrase();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading]);
 
+  // ==========================================================================================
+  // this function runs randomGamePhrase a prop thats from firebase.js
+
   const getRandomPhrase = async () => {
     const newWord = await randomGamePhrase();
-    setgameWord(newWord);
+    setgameObject(newWord);
+    setsplitWord(newWord.word.split(""));
+    splitDivGen();
   };
 
+  const splitDivGen = async () => {
+    splitWord.map((e) => {
+      return { e };
+    });
+  };
+  // =============================================================================================
+
+  // function to get key value
   function guessValue(e) {
     e.preventDefault();
     let newGuess = e.target.value;
@@ -82,7 +94,11 @@ function Dashboard() {
         </div>
       </div>
       <div className="gameboard-container">
-        <GameBoard gameWord={gameWord} />
+        <GameBoard
+          gameObject={gameObject}
+          splitWord={splitWord}
+          splitDivGen={splitDivGen}
+        />
       </div>
 
       {spin ? (

@@ -1,10 +1,13 @@
 import React from "react";
 
 export default function GameBoard(props) {
-  let { gameWord } = props;
+  let { gameObject, splitWord, splitDivGen } = props;
+  console.log(gameObject, "go");
+  console.log(splitWord, "sw");
+  console.log(splitDivGen, "sdg");
 
-  const finalWord = gameWord.word;
-  const finalType = gameWord.type;
+  const finalWord = gameObject.word;
+  const finalType = gameObject.type;
 
   return (
     <div id="game-board">
