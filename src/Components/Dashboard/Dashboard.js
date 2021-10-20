@@ -19,6 +19,33 @@ function Dashboard() {
   const [setting, setSetting] = useState(true);
   const [spin, setSpin] = useState(true);
 
+  const values = [
+    "lose",
+    800,
+    500,
+    650,
+    500,
+    900,
+    0,
+    5000,
+    500,
+    600,
+    700,
+    600,
+    650,
+    500,
+    700,
+    500,
+    600,
+    550,
+    500,
+    600,
+    0,
+    650,
+    "free",
+    700,
+  ];
+
   const history = useHistory();
 
   // Firebase auth login
@@ -93,7 +120,7 @@ function Dashboard() {
 
       {spin ? (
         <div id="spinwheel-container">
-          <SpinWheel />
+          <SpinWheel values={values} />
           <button
             onClick={(e) => {
               e.preventDefault();
