@@ -7,9 +7,7 @@ export default function GameBoard(props) {
   const finalWord = gameObject.word;
   // const finalWordPunc = splitWord;
   const finalType = gameObject.type;
-  let puncRegex = "'";
   console.log(finalWord, "finalWord");
-  console.log(visableArr, "visibleArr");
   return (
     <div id="game-board">
       <div id="board">
@@ -20,7 +18,6 @@ export default function GameBoard(props) {
               index={index}
               letter={letter}
               visable={visableArr.includes(letter)}
-              punc={finalWord.includes(puncRegex)}
             />
           );
         })}

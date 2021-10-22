@@ -98,21 +98,28 @@ function Dashboard() {
   const rightOrWrongSolve = (e) => {
     e.preventDefault();
     let sv = solveValue;
-    let noPunc = sv.match(/[a-zA-Z ]/g).join("");
-    let check = noPunc.toLowerCase();
-    check = check.replace(/\s{2,}/g, " ");
-    let finalPhrase = gameObject.word;
-    finalPhrase = finalPhrase.toLowerCase();
-
-    if (check === finalPhrase) {
-      alert("Correct");
-    } else {
+    console.log(sv);
+    if (sv.length === 0) {
       alert("Time to spin again");
       setSolve(false);
       setSpin(true);
+    } else {
+      let noPunc = sv.match(/[a-zA-Z ]/g).join("");
+      let check = noPunc.toLowerCase();
+      check = check.replace(/\s{2,}/g, " ");
+      let finalPhrase = gameObject.word;
+      finalPhrase = finalPhrase.toLowerCase();
+
+      if (check === finalPhrase) {
+        alert("Correct");
+      } else {
+        alert("Time to spin again");
+        setSolve(false);
+        setSpin(true);
+      }
     }
   };
-
+  let count = 0;
   // setGuess([...guess, newGuess]);
   // function to get key value
   const guessValue = (e) => {
@@ -130,8 +137,7 @@ function Dashboard() {
       setSpin(true);
     }
   };
-  console.log(visableArr);
-
+  console.log(count);
   // =============================================================================================
 
   return (
