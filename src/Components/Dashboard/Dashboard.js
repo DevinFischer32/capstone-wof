@@ -124,35 +124,47 @@ function Dashboard() {
     }
   };
   // function to get key value
-  let count = 0;
+
   const guessValue = (e) => {
     e.preventDefault();
     let newGuess = e.target.value;
-    // let vowels = "aeiou";
-    // let consansts = "qwrtyplkjhgfdsazxcvbnm";
+    let vowels = /[AEIOU]/g;
+
+    if (newGuess.match(vowels)) {
+      if (splitWord.includes(newGuess)) {
+        if (visableArr.includes(newGuess)) {
+          alert("already choosen letter");
+          // setSpin(true)
+        } else {
+          setVisableArr([...visableArr, newGuess]);
+          alert("letter revealed");
+        }
+      } else {
+        alert("guess not included");
+        // setSpin(true);
+      }
+    } else {
+      if (splitWord.includes(newGuess)) {
+        if (visableArr.includes(newGuess)) {
+          alert("already choosen letter");
+          // setSpin(true)
+        } else {
+          setVisableArr([...visableArr, newGuess]);
+          alert("letter revealed");
+        }
+      } else {
+        alert("guess not included");
+        // setSpin(true);
+      }
+    }
 
     // the if checks if the player guess is in splitWord
     // then it has an if for if player guess is already been added to previous guesses
     // if not already clicked then it adds the guess to previous guesses
-
-    if (splitWord.includes(newGuess)) {
-      if (visableArr.includes(newGuess)) {
-        alert("already choosen letter");
-        // setSpin(true)
-      } else {
-        setVisableArr([...visableArr, newGuess]);
-        alert("letter revealed");
-      }
-    }
     // this else hits when the guess is not included inside the word
-    else {
-      alert("guess not included");
-      // setSpin(true);
-    }
   };
 
   console.log(visableArr, "Array of Guesses");
-  console.log(count, "count of letter revealed ");
   // =============================================================================================
 
   return (

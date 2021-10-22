@@ -11,3 +11,6 @@ body {
   font-family: "wheeloffortune", sans-serif;
   letter-spacing: 0.08rem;
 }
+#dollarSign {
+  font-family: "dollar", sans-serif;
+}
