@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
-import { auth, db } from "../Firebase/firebase";
+import { auth, db, randomGamePhrase } from "../Firebase/firebase";
 import Setting from "../Setting/Setting";
 import settingIcon from "../Logos/settings-icon.png";
 import Keyboard from "../Keyboard/Keyboard";
@@ -9,19 +9,19 @@ import Bank from "../Bank/Bank";
 import SpinWheel from "../SpinWheel/SpinWheel";
 import GameBoard from "../GameBoard/GameBoard";
 import Solve from "../Solve/Solve";
-import { randomGamePhrase } from "../Firebase/firebase";
 
 function Dashboard() {
   const [user, loading] = useAuthState(auth);
+  const [setting, setSetting] = useState(true);
+  const [spin, setSpin] = useState(true);
+  const [solve, setSolve] = useState(false);
   const [name, setName] = useState("");
   const [visableArr, setVisableArr] = useState([]);
   const [gameObject, setgameObject] = useState({});
   const [splitWord, setsplitWord] = useState([]);
-  const [setting, setSetting] = useState(true);
-  const [spin, setSpin] = useState(true);
-  const [solve, setSolve] = useState(false);
   const [solveValue, setsolveValue] = useState("");
   const [bank, setbank] = useState(0);
+  // const [spinAmount, setspinAmount] = useState(0);
 
   const values = [
     "lose",
@@ -70,7 +70,7 @@ function Dashboard() {
     if (loading) return;
     if (!user) return history.replace("/");
     fetchUserName();
-    // Gets random word from db
+    // Gets random word from db and resets game
     resetGame();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading]);
@@ -94,14 +94,13 @@ function Dashboard() {
     a[e] = a[e] ? a[e] + 1 : 1;
     return a;
   }, {});
-  console.log(InvolvedLetters, "Letters");
+
   // =============================================================================================
   // solve screen function
   const switchScreen = (e) => {
     e.preventDefault();
     setSolve(false);
   };
-
   const solveFn = (e) => {
     e.preventDefault();
     setsolveValue(e.target.value);
@@ -109,70 +108,64 @@ function Dashboard() {
 
   const rightOrWrongSolve = (e) => {
     e.preventDefault();
-    let sv = solveValue;
-    if (sv.length === 0) {
+    let noPunc = solveValue.match(/[a-zA-Z ]/g).join("");
+    let check = noPunc.toLowerCase();
+    check = check.replace(/\s{2,}/g, " ");
+    let finalPhrase = gameObject.word;
+    finalPhrase = finalPhrase.toLowerCase();
+
+    if (solveValue.length === 0 || check !== finalPhrase) {
       alert("Time to spin again");
       setSolve(false);
       setSpin(true);
     } else {
-      let noPunc = sv.match(/[a-zA-Z ]/g).join("");
-      let check = noPunc.toLowerCase();
-      check = check.replace(/\s{2,}/g, " ");
-      let finalPhrase = gameObject.word;
-      finalPhrase = finalPhrase.toLowerCase();
-
-      if (check === finalPhrase) {
-        setbank(bank + 2000);
-        alert("Correct");
-      } else {
-        alert("Time to spin again");
-        setSolve(false);
-        setSpin(true);
-      }
+      setbank(bank + 2000);
+      alert("Correct");
     }
   };
+  let punc = "'" || "-";
+
+  let beforeCheckKey = [...splitWord].join("").replace(punc, "");
+
+  let checkKey = [...new Set(beforeCheckKey)].sort().join("");
+  let checkValue = [...visableArr].sort().join("");
+
+  console.log(checkKey, checkValue, "Array of Guesses");
 
   // function to get key value
   const guessValue = (e) => {
     e.preventDefault();
     let newGuess = e.target.value;
     let vowels = /[AEIOU]/g;
+    let consonant = /[BCDFGHJKLMNPQRSTVWXYZ]/g;
     let letterQuantity = InvolvedLetters[newGuess];
 
-    if (newGuess.match(vowels)) {
+    if (checkKey !== checkValue) {
       if (splitWord.includes(newGuess)) {
-        if (visableArr.includes(newGuess)) {
-          alert("already choosen letter");
-          // setSpin(true)
+        if (!visableArr.includes(newGuess)) {
+          if (newGuess.match(vowels) && bank >= 250) {
+            setVisableArr([...visableArr, newGuess]);
+            let bankSetAmount = -250;
+            setbank(bank + bankSetAmount);
+            alert("Letter Revealed");
+          } else if (newGuess.match(consonant)) {
+            setVisableArr([...visableArr, newGuess]);
+            let bankSetAmount = 500 * letterQuantity;
+            setbank(bank + bankSetAmount);
+            alert("Letter Revealed");
+          } else {
+            alert("Not enough to buy a vowel");
+          }
         } else {
-          setVisableArr([...visableArr, newGuess]);
-          let bankSetAmount = 500 * letterQuantity;
-          setbank(bank + bankSetAmount);
-          alert("letter revealed");
+          alert("Already Chosen");
         }
       } else {
-        alert("guess not included");
-        // setSpin(true);
+        alert("letter not included");
       }
     } else {
-      if (splitWord.includes(newGuess)) {
-        if (visableArr.includes(newGuess)) {
-          alert("already choosen letter");
-          // setSpin(true)
-        } else {
-          setVisableArr([...visableArr, newGuess]);
-          let bankSetAmount = 500 * letterQuantity;
-          setbank(bank + bankSetAmount);
-          alert("letter revealed");
-        }
-      } else {
-        alert("guess not included");
-        // setSpin(true);
-      }
+      alert("congrats");
     }
   };
-
-  console.log(visableArr, "Array of Guesses");
   // =============================================================================================
 
   return (
@@ -181,7 +174,6 @@ function Dashboard() {
         <div id="title-container">
           <h1 id="title">WHEEL OF FoRTUNE</h1>
         </div>
-
         {setting ? (
           <button
             id="setting-icon"
@@ -204,7 +196,6 @@ function Dashboard() {
           visableArr={visableArr}
         />
       </div>
-
       {spin ? (
         <div id="spinwheel-container">
           <SpinWheel values={values} />
@@ -220,7 +211,6 @@ function Dashboard() {
       ) : (
         <div id="keyboard-container">
           <Keyboard guessValue={guessValue} />
-
           {solve ? (
             <div>
               <Solve
@@ -240,7 +230,6 @@ function Dashboard() {
               SoLVE THE PHRASE
             </button>
           )}
-
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -251,7 +240,6 @@ function Dashboard() {
           </button>
         </div>
       )}
-
       <Bank name={name} bank={bank} />
     </div>
   );
