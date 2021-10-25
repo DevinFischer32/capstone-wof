@@ -76,7 +76,7 @@ export default class LandingPageTHREE extends Component {
     function titleText() {
       const geometry = new THREE.TextGeometry(text, {
         font: newFont,
-        size: 5,
+        size: 10,
         height: 1,
       });
       const materials = [
@@ -86,7 +86,7 @@ export default class LandingPageTHREE extends Component {
       const textMesh1 = new THREE.Mesh(geometry, materials);
       textMesh1.castShadow = true;
       textMesh1.position.y = 20;
-      textMesh1.position.x = 0;
+      textMesh1.position.x = 20;
       scene.add(textMesh1);
     }
 

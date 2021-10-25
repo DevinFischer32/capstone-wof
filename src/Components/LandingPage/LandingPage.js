@@ -13,7 +13,7 @@ export default function LandingPage() {
     <div id="homepage">
       <h1>Wheel of Fortune</h1>
 
-      <LandingPageTHREE />
+      {/* <LandingPageTHREE /> */}
 
       {login ? (
         register ? (

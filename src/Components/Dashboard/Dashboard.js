@@ -21,6 +21,7 @@ function Dashboard() {
   const [spin, setSpin] = useState(true);
   const [solve, setSolve] = useState(false);
   const [solveValue, setsolveValue] = useState("");
+  const [bank, setbank] = useState(0);
 
   const values = [
     "lose",
@@ -70,13 +71,14 @@ function Dashboard() {
     if (!user) return history.replace("/");
     fetchUserName();
     // Gets random word from db
-    getRandomPhrase();
-    resetGuess();
+    resetGame();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading]);
 
-  const resetGuess = () => {
+  const resetGame = () => {
+    getRandomPhrase();
     setVisableArr([]);
+    setbank(0);
   };
   // ==========================================================================================
   // this function runs randomGamePhrase a prop thats from firebase.js
@@ -87,6 +89,12 @@ function Dashboard() {
     setsplitWord(newWord.word.split(""));
   };
 
+  // Counts each letter in the gameWord
+  let InvolvedLetters = splitWord.reduce((a, e) => {
+    a[e] = a[e] ? a[e] + 1 : 1;
+    return a;
+  }, {});
+  console.log(InvolvedLetters, "Letters");
   // =============================================================================================
   // solve screen function
   const switchScreen = (e) => {
@@ -102,7 +110,6 @@ function Dashboard() {
   const rightOrWrongSolve = (e) => {
     e.preventDefault();
     let sv = solveValue;
-    console.log(sv);
     if (sv.length === 0) {
       alert("Time to spin again");
       setSolve(false);
@@ -115,6 +122,7 @@ function Dashboard() {
       finalPhrase = finalPhrase.toLowerCase();
 
       if (check === finalPhrase) {
+        setbank(bank + 2000);
         alert("Correct");
       } else {
         alert("Time to spin again");
@@ -123,12 +131,13 @@ function Dashboard() {
       }
     }
   };
-  // function to get key value
 
+  // function to get key value
   const guessValue = (e) => {
     e.preventDefault();
     let newGuess = e.target.value;
     let vowels = /[AEIOU]/g;
+    let letterQuantity = InvolvedLetters[newGuess];
 
     if (newGuess.match(vowels)) {
       if (splitWord.includes(newGuess)) {
@@ -137,6 +146,8 @@ function Dashboard() {
           // setSpin(true)
         } else {
           setVisableArr([...visableArr, newGuess]);
+          let bankSetAmount = 500 * letterQuantity;
+          setbank(bank + bankSetAmount);
           alert("letter revealed");
         }
       } else {
@@ -150,6 +161,8 @@ function Dashboard() {
           // setSpin(true)
         } else {
           setVisableArr([...visableArr, newGuess]);
+          let bankSetAmount = 500 * letterQuantity;
+          setbank(bank + bankSetAmount);
           alert("letter revealed");
         }
       } else {
@@ -157,11 +170,6 @@ function Dashboard() {
         // setSpin(true);
       }
     }
-
-    // the if checks if the player guess is in splitWord
-    // then it has an if for if player guess is already been added to previous guesses
-    // if not already clicked then it adds the guess to previous guesses
-    // this else hits when the guess is not included inside the word
   };
 
   console.log(visableArr, "Array of Guesses");
@@ -244,7 +252,7 @@ function Dashboard() {
         </div>
       )}
 
-      <Bank name={name} />
+      <Bank name={name} bank={bank} />
     </div>
   );
 }

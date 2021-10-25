@@ -2,7 +2,7 @@ import React from "react";
 import "./Bank.css";
 
 export default function Bank(props) {
-  const { name } = props;
+  const { name, bank } = props;
   return (
     <div id="bank-container">
       <h6 id="username">{name}</h6>
@@ -10,7 +10,7 @@ export default function Bank(props) {
         <h5 id="dollarSign" className="bank">
           $
         </h5>
-        <p className="bank">20,750</p>
+        <p className="bank">{bank}</p>
       </div>
     </div>
   );
