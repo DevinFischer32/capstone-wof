@@ -11,9 +11,7 @@ export default function LandingPage() {
 
   return (
     <div id="homepage">
-      <h1>Wheel of Fortune</h1>
-
-      {/* <LandingPageTHREE /> */}
+      <LandingPageTHREE />
 
       {login ? (
         register ? (

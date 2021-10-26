@@ -21,7 +21,6 @@ function Dashboard() {
   const [splitWord, setsplitWord] = useState([]);
   const [solveValue, setsolveValue] = useState("");
   const [bank, setbank] = useState(0);
-  // const [spinAmount, setspinAmount] = useState(0);
 
   const values = [
     "lose",
@@ -120,48 +119,54 @@ function Dashboard() {
       setSpin(true);
     } else {
       setbank(bank + 2000);
+      setSpin(true);
       alert("Correct");
     }
   };
 
-  const checkBoard = () => {
-    let punc = "'" || "-";
-    let beforeCheckKey = [...splitWord].join("").replace(punc, "");
-    let checkKey = [...new Set(beforeCheckKey)].sort().join("");
-    checkKey = checkKey.replace(" ", "");
-    let checkValue = [...visableArr].sort().join("");
+  let punc = "'" || "-";
+  let beforeCheckKey = [...splitWord].join("").replace(punc, "");
+  let checkKey = [...new Set(beforeCheckKey)].sort().join("");
+  checkKey = checkKey.replace(" ", "");
+  let checkValue = "placeholder";
+  checkValue = [...visableArr].sort().join("");
+
+  useEffect(() => {
     if (checkKey === checkValue) {
-      alert("Phrase Complete");
+      alert("Phrase Done");
+    } else {
+      return;
     }
-  };
-  checkBoard();
+  }, [checkKey, checkValue]);
+
   // function to get key value
-  const guessValue = (e) => {
+  const guessValue = async (e) => {
     e.preventDefault();
     let newGuess = e.target.value;
     let vowels = /[AEIOU]/g;
     let consonant = /[BCDFGHJKLMNPQRSTVWXYZ]/g;
     let letterQuantity = InvolvedLetters[newGuess];
+
     if (splitWord.includes(newGuess)) {
       if (!visableArr.includes(newGuess)) {
         if (newGuess.match(vowels) && bank >= 250) {
-          setVisableArr([...visableArr, newGuess]);
+          await setVisableArr([...visableArr, newGuess]);
           let bankSetAmount = -250;
-          setbank(bank + bankSetAmount);
+          await setbank(bank + bankSetAmount);
           alert("Letter Revealed");
         } else if (newGuess.match(consonant)) {
-          setVisableArr([...visableArr, newGuess]);
+          await setVisableArr([...visableArr, newGuess]);
           let bankSetAmount = 500 * letterQuantity;
-          setbank(bank + bankSetAmount);
+          await setbank(bank + bankSetAmount);
           alert("Letter Revealed");
         } else {
-          alert("Not enough to buy a vowel");
+          alert("Not Enough To Buy A Vowel");
         }
       } else {
         alert("Already Chosen");
       }
     } else {
-      alert("letter not included");
+      alert("Letter Not Included");
     }
   };
   // =============================================================================================

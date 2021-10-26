@@ -3,10 +3,12 @@ import { logout } from "../Firebase/firebase";
 
 export default function Setting(props) {
   const { setSetting } = props;
+
   return (
     <div className="setting-page">
       <div className="column settingStyle">
         <h1>Settings</h1>
+
         <button onClick={logout} id="logoutBtn">
           Logout
         </button>
