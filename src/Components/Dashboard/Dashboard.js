@@ -123,15 +123,18 @@ function Dashboard() {
       alert("Correct");
     }
   };
-  let punc = "'" || "-";
 
-  let beforeCheckKey = [...splitWord].join("").replace(punc, "");
-
-  let checkKey = [...new Set(beforeCheckKey)].sort().join("");
-  let checkValue = [...visableArr].sort().join("");
-
-  console.log(checkKey, checkValue, "Array of Guesses");
-
+  const checkBoard = () => {
+    let punc = "'" || "-";
+    let beforeCheckKey = [...splitWord].join("").replace(punc, "");
+    let checkKey = [...new Set(beforeCheckKey)].sort().join("");
+    checkKey = checkKey.replace(" ", "");
+    let checkValue = [...visableArr].sort().join("");
+    if (checkKey === checkValue) {
+      alert("Phrase Complete");
+    }
+  };
+  checkBoard();
   // function to get key value
   const guessValue = (e) => {
     e.preventDefault();
@@ -139,31 +142,26 @@ function Dashboard() {
     let vowels = /[AEIOU]/g;
     let consonant = /[BCDFGHJKLMNPQRSTVWXYZ]/g;
     let letterQuantity = InvolvedLetters[newGuess];
-
-    if (checkKey !== checkValue) {
-      if (splitWord.includes(newGuess)) {
-        if (!visableArr.includes(newGuess)) {
-          if (newGuess.match(vowels) && bank >= 250) {
-            setVisableArr([...visableArr, newGuess]);
-            let bankSetAmount = -250;
-            setbank(bank + bankSetAmount);
-            alert("Letter Revealed");
-          } else if (newGuess.match(consonant)) {
-            setVisableArr([...visableArr, newGuess]);
-            let bankSetAmount = 500 * letterQuantity;
-            setbank(bank + bankSetAmount);
-            alert("Letter Revealed");
-          } else {
-            alert("Not enough to buy a vowel");
-          }
+    if (splitWord.includes(newGuess)) {
+      if (!visableArr.includes(newGuess)) {
+        if (newGuess.match(vowels) && bank >= 250) {
+          setVisableArr([...visableArr, newGuess]);
+          let bankSetAmount = -250;
+          setbank(bank + bankSetAmount);
+          alert("Letter Revealed");
+        } else if (newGuess.match(consonant)) {
+          setVisableArr([...visableArr, newGuess]);
+          let bankSetAmount = 500 * letterQuantity;
+          setbank(bank + bankSetAmount);
+          alert("Letter Revealed");
         } else {
-          alert("Already Chosen");
+          alert("Not enough to buy a vowel");
         }
       } else {
-        alert("letter not included");
+        alert("Already Chosen");
       }
     } else {
-      alert("congrats");
+      alert("letter not included");
     }
   };
   // =============================================================================================
