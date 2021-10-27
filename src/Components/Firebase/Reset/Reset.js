@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import { auth, sendPasswordResetEmail } from "../firebase";
-import "./Reset.css";
 
 function Reset(props) {
   const { setreset, setregister } = props;
@@ -17,24 +16,29 @@ function Reset(props) {
   }, [user, loading]);
 
   return (
-    <div className="reset">
-      <div className="login__container">
-        <div className="conatiner-login">
+    <div className="style">
+      <div className="container">
+        <div className="login-conatiner">
           <input
             type="text"
-            className="reset__textBox"
+            className="login-textBox login-margin"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail Address"
           />
           <button
-            className="reset__btn"
-            onClick={() => sendPasswordResetEmail(email)}
+            className="loginBtn-size  login-margin"
+            onClick={() => {
+              sendPasswordResetEmail(email);
+              setreset(false);
+              setregister(false);
+            }}
           >
             Send password reset email
           </button>
           <div>Don't have an account?</div>
           <button
+            className="login-margin loginBtn-size"
             onClick={(e) => {
               setreset(false);
               setregister(true);

@@ -24,37 +24,44 @@ function Login(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading]);
   return (
-    <div className="login">
-      <div className="login__container">
-        <div className="conatiner-login">
+    <div className="style">
+      <div className="container">
+        <div className="login-conatiner">
           <input
+            className="login-textBox login-margin "
             type="text"
-            className="login__textBox"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="E-mail Address"
           />
           <input
+            className="login-textBox login-margin "
             type="password"
-            className="login__textBox"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
           <button
-            className="login__btn"
+            className="loginBtn-style login-margin "
             onClick={() => signInWithEmailAndPassword(email, password)}
           >
             Login
           </button>
           <button
-            className="login__btn login__google"
+            className="loginBtn-style login-margin "
             onClick={signInWithGoogle}
           >
-            Login with Google
+            Login with {""}
+            <span style={{ color: "#3f83ee" }}>G</span>
+            <span style={{ color: "#e54233" }}>o</span>
+            <span style={{ color: "#fabe06" }}>o</span>
+            <span style={{ color: "#3f83ee" }}>G</span>
+            <span style={{ color: "#32a351" }}>L</span>
+            <span style={{ color: "#e54233" }}>E</span>
           </button>
           <div>
             <button
+              className="loginBtn-size  login-margin"
               onClick={(e) => {
                 setreset(true);
               }}
@@ -62,8 +69,9 @@ function Login(props) {
               Forgot Password
             </button>
           </div>
-          <div>Don't have an account?</div>
+          <div id="dhaA">Don't have an account?</div>
           <button
+            className="loginBtn-size login-margin"
             onClick={(e) => {
               setregister(true);
             }}

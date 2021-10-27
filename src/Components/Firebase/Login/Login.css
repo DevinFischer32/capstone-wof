@@ -1,45 +1,67 @@
-.login {
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+.style {
+  align-items: center;
+  display: flex;
   height: 100vh;
+  justify-content: center;
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.login__container {
+.container {
+  align-items: center;
+  background-color: rgb(0, 0, 0, 0.75);
+  border: white 2px solid;
   display: flex;
   flex-direction: column;
+  height: 95vh;
+  justify-content: center;
   text-align: center;
-  background-color: rgb(0, 0, 0, 0.5);
-  width: 95vw;
-  height: 90vh;
-  justify-content: center;
-  align-items: center;
+  width: 98vw;
 }
-.login__textBox {
-  padding: 10px;
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: black;
-  -webkit-text-stroke: black 1.5px;
-}
-.conatiner-login {
+.login-conatiner {
+  animation: gradient 7s ease infinite;
+  background: linear-gradient(135deg, #2d20a9, #362071, #6b4075, #ac6ca1);
+  background-size: 400% 400%;
+  border: white 2px solid;
   display: flex;
   flex-direction: column;
-  background-color: white;
   padding: 2em;
-  border: black 2px solid;
 }
-.login__btn {
-  padding: 10px;
+.login-textBox {
+  color: black;
   font-size: 18px;
-  margin-bottom: 10px;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+}
+.loginBtn-style {
+  background-color: black;
   border: none;
   color: white;
-  background-color: black;
+  font-size: 18px;
+  padding: 10px;
 }
-.login__google {
-  background-color: #4285f4;
+
+.login-margin {
+  margin: 5px 0;
 }
-.login div {
-  margin-top: 7px;
+
+.loginBtn-size {
+  padding: 5px;
+  font-size: 1em;
+}
+/* Dont have a account div */
+#dhaA {
+  color: black;
+}
+
+::placeholder {
+  color: black;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: black;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: black;
 }
