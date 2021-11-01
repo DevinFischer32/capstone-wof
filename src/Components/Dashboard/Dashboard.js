@@ -9,6 +9,7 @@ import Bank from "../Bank/Bank";
 import SpinWheel from "../SpinWheel/SpinWheel";
 import GameBoard from "../GameBoard/GameBoard";
 import Solve from "../Solve/Solve";
+import Rules from "../Rules/Rules";
 
 function Dashboard() {
   const [user, loading] = useAuthState(auth);
@@ -51,6 +52,7 @@ function Dashboard() {
     Y: true,
     Z: true,
   });
+  const [rule, setRules] = useState(false);
 
   const values = [
     900, 800, 500, 650, 500, 900, -1, 5000, 500, 600, 700, 600, 650, 500, 700,
@@ -202,12 +204,10 @@ function Dashboard() {
   ];
   const getSpinDeg = () => {
     let spinDeg = fifthteen[Math.floor(Math.random() * fifthteen.length)] + 720;
-
     let actual = (spinDeg / 180) * Math.PI;
     let spinIndex = Math.floor((spinDeg - 720) / 15);
     setSpinDeg(actual);
     setspinAmount(values[spinIndex]);
-    console.log(spinIndex);
 
     if (spinIndex === 6 || spinIndex === 20) {
       setTimeout(() => {
@@ -224,7 +224,8 @@ function Dashboard() {
   // =============================================================================================
 
   return (
-    <div>
+    <div className="page">
+      {!rule ? null : <Rules setRules={setRules} />}
       <div className="header">
         <div id="title-container">
           <h1 id="title">WHEEL OF FoRTUNE</h1>
@@ -240,7 +241,7 @@ function Dashboard() {
             <img id="settingIcon-img" src={settingIcon} alt="" />
           </button>
         ) : (
-          <Setting setSetting={setSetting} />
+          <Setting setSetting={setSetting} setRules={setRules} rule={rule} />
         )}
       </div>
 
@@ -255,6 +256,7 @@ function Dashboard() {
         <div id="spinwheel-container">
           <SpinWheel spinDeg={spinDeg} />
           <button
+            id="spinBtn"
             onClick={(e) => {
               e.preventDefault();
               getSpinDeg();
@@ -287,7 +289,7 @@ function Dashboard() {
           )}
         </div>
       )}
-      <Bank name={name} bank={bank} />
+      {rule ? null : <Bank name={name} bank={bank} />}
     </div>
   );
 }

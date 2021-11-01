@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { logout } from "../Firebase/firebase";
-import Rules from "./Rules/Rules";
 
 export default function Setting(props) {
-  const { setSetting } = props;
-  const [rule, setRules] = useState(false);
+  const { setSetting, setRules, rule } = props;
 
   return (
     <div className="setting-page">
@@ -14,28 +12,16 @@ export default function Setting(props) {
         <button onClick={logout} id="logoutBtn">
           Logout
         </button>
-        {!rule ? (
-          <button
-            id="logoutBtn"
-            onClick={(e) => {
-              e.preventDefault();
-              setRules(true);
-            }}
-          >
-            Rules{" "}
-          </button>
-        ) : (
-          <Rules setRules={setRules} />
-        )}
+
         <button
-          id="backBtn"
+          id="ruleBtn-back"
           onClick={(e) => {
             e.preventDefault();
             setSetting(true);
+            setRules(!rule);
           }}
         >
-          {" "}
-          Back to Game
+          {rule ? "Back to Game" : "Rules"}
         </button>
       </div>
     </div>

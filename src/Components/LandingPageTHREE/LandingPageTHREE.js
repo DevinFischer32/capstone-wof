@@ -41,16 +41,9 @@ export default class LandingPageTHREE extends Component {
 
     // POINT LIGHT
     const light1 = new THREE.PointLight(0xffffff, 1, 100);
-    light1.castShadow = true;
-    light1.shadow.mapSize.width = 4096;
-    light1.shadow.mapSize.height = 4096;
-    scene.add(light1);
-
     const light2 = new THREE.PointLight(0xffffff, 1, 100);
-    light2.castShadow = true;
-    light2.shadow.mapSize.width = 4096;
-    light2.shadow.mapSize.height = 4096;
-    scene.add(light2);
+
+    scene.add(light1, light2);
 
     // TEXT
     const loader = new FontLoader();

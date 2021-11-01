@@ -17,10 +17,10 @@
 
 #spinwheel-container {
   width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
-canvas {
-  width: 100%;
-}
+
 #keyboard-container {
   width: 100%;
 }
@@ -29,4 +29,11 @@ canvas {
 .column {
   display: flex;
   flex-direction: column;
+}
+.page {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  max-height: 100vh;
 }

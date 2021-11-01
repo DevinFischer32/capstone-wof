@@ -2,7 +2,8 @@
   background-color: azure;
   width: 10rem;
   margin: 0.5rem;
-  height: 30vh;
+  height: max-content;
+  padding: 1rem 0;
   border: black 2px solid;
   position: absolute;
   right: 0;
@@ -27,10 +28,9 @@
   border-radius: 1rem;
   margin-top: 2rem;
 }
-#backBtn {
-  position: absolute;
-  bottom: 0;
+#ruleBtn-back {
   border-radius: 1rem;
+  margin-top: 2rem;
 }
 #setting-icon {
   margin: 0.7rem;

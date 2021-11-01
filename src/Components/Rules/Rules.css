@@ -1,0 +1,30 @@
+#rules-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+
+  background-color: lightblue;
+}
+.center-column {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+#GR {
+  font-size: 2em;
+  text-decoration: white underline 3px;
+}
+ol {
+  font-size: 1.5em;
+  margin: 1rem 0;
+}
+li {
+  margin: 0.5rem 0;
+  list-style: disc inside;
+}
