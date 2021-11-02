@@ -24,6 +24,14 @@ export default function Rules() {
           </li>
         </ul>
         <h1 id="GR">How to Play</h1>
+        <ul>
+          <li>Click Spin Wheel</li>
+          <li>Spaces, Dashes, and Single Quotes are exposed on the Board.</li>
+          <li>Guess a Letter that Could be in the Phrase.</li>
+          <li>If Guess is Correct continue Guessing</li>
+          <li>If Guess is Wrong Respin</li>
+          <li>You can Solve at any time after spining the wheel</li>
+        </ul>
       </div>
     </div>
   );

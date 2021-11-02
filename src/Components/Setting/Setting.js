@@ -13,7 +13,6 @@ export default function Setting(props) {
           Logout
         </button>
         <button
-          id="logoutBtn"
           onClick={() => {
             setRules(!rule);
             setSetting(true);
