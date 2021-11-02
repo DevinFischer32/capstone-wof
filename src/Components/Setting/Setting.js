@@ -12,16 +12,23 @@ export default function Setting(props) {
         <button onClick={logout} id="logoutBtn">
           Logout
         </button>
-
         <button
-          id="ruleBtn-back"
-          onClick={(e) => {
-            e.preventDefault();
-            setSetting(true);
+          id="logoutBtn"
+          onClick={() => {
             setRules(!rule);
+            setSetting(true);
           }}
         >
-          {rule ? "Back to Game" : "Rules"}
+          Game Rules
+        </button>
+        <button
+          id="ruleBtn-back"
+          onClick={() => {
+            setSetting(true);
+            setRules(false);
+          }}
+        >
+          Back to Game
         </button>
       </div>
     </div>

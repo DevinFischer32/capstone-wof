@@ -3,7 +3,6 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import "./CSSReset.css";
 import "./App.css";
-import "./Layout.css";
 import "./Components/GameBoard/GameBoard.css";
 import "./Components/Dashboard/Dashboard.css";
 import "./Components/Keyboard/Keyboard.css";

@@ -1,7 +1,3 @@
-@font-face {
-  font-family: "dollarBill";
-  src: url("../Logos/chesterfieldregular.ttf");
-}
 #bank-container {
   background-color: #3131e4;
   bottom: 0;
@@ -35,7 +31,6 @@
 }
 
 #dollarSign {
-  font-family: "dollarBill";
   font-size: 3em;
   font-weight: 600;
   position: absolute;

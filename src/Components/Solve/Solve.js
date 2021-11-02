@@ -12,7 +12,12 @@ export default function Solve(props) {
       </div>
       <div id="input-solve-container">
         <form>
-          <input id="solveInput" type="text" onChange={solveFn} />
+          <input
+            id="solveInput"
+            type="text"
+            onChange={solveFn}
+            autoComplete="off"
+          />
           <button onClick={rightOrWrongSolve} id="solveBtn">
             Solve Puzzle
           </button>

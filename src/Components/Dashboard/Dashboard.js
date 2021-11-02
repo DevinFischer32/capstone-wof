@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import { auth, db, randomGamePhrase } from "../Firebase/firebase";
@@ -15,7 +15,7 @@ function Dashboard() {
   const [user, loading] = useAuthState(auth);
   const [setting, setSetting] = useState(true);
   const [spin, setSpin] = useState(true);
-  const [solve, setSolve] = useState(false);
+  const [solvePage, setSolvePage] = useState(false);
   const [name, setName] = useState("");
   const [solveValue, setsolveValue] = useState("");
   const [visableArr, setVisableArr] = useState([]);
@@ -83,15 +83,43 @@ function Dashboard() {
     resetGame();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading]);
-
-  const resetGame = () => {
+  const resetGame = useCallback(() => {
     getRandomPhrase();
     setVisableArr([]);
     setbank(0);
-  };
+    setSpin(true);
+    setClick({
+      A: true,
+      B: true,
+      C: true,
+      D: true,
+      E: true,
+      F: true,
+      G: true,
+      H: true,
+      I: true,
+      J: true,
+      K: true,
+      L: true,
+      M: true,
+      N: true,
+      O: true,
+      P: true,
+      Q: true,
+      R: true,
+      S: true,
+      T: true,
+      U: true,
+      V: true,
+      W: true,
+      X: true,
+      Y: true,
+      Z: true,
+    });
+  }, []);
+
   // ==========================================================================================
   // this function runs randomGamePhrase a prop thats from firebase.js
-
   const getRandomPhrase = async () => {
     const newWord = await randomGamePhrase();
     setgameObject(newWord);
@@ -106,12 +134,10 @@ function Dashboard() {
 
   // =============================================================================================
   // solve screen function
-  const switchScreen = (e) => {
-    e.preventDefault();
-    setSolve(false);
+  const switchScreen = () => {
+    setSolvePage(!solvePage);
   };
   const solveFn = (e) => {
-    e.preventDefault();
     setsolveValue(e.target.value);
   };
 
@@ -123,9 +149,9 @@ function Dashboard() {
     let finalPhrase = gameObject.word;
     finalPhrase = finalPhrase.toLowerCase();
 
-    if (solveValue.length === 0 || check !== finalPhrase) {
+    if (solveValue === null || check !== finalPhrase) {
       alert("Time to spin again");
-      setSolve(false);
+      setSolvePage(false);
       setSpin(true);
     } else {
       setbank(bank + 2000);
@@ -147,9 +173,10 @@ function Dashboard() {
     if (checkKey.length > 0) {
       if (checkKey === checkValue) {
         alert("Phrase Done");
+        resetGame();
       }
     }
-  }, [checkKey, checkValue]);
+  }, [checkKey, checkValue, resetGame]);
 
   // function to get key value
   const guessValue = async (e) => {
@@ -202,15 +229,16 @@ function Dashboard() {
       }
     }
   };
+
   let fifthteen = [
     7.5, 22.5, 37.5, 52.5, 67.5, 82.5, 97.5, 112.5, 127.5, 142.5, 157.5, 172.5,
     187.5, 202.5, 217.5, 232.5, 247.5, 262.5, 277.5, 292.5, 307.5, 322.5, 337.5,
     352.5,
   ];
   const getSpinDeg = () => {
-    let spinDeg = fifthteen[Math.floor(Math.random() * fifthteen.length)] + 720;
+    let spinDeg = fifthteen[Math.floor(Math.random() * fifthteen.length)] + 540;
     let actual = (spinDeg / 180) * Math.PI;
-    let spinIndex = Math.floor((spinDeg - 720) / 15);
+    let spinIndex = Math.floor((spinDeg - 540) / 15);
     setSpinDeg(actual);
     setspinAmount(values[spinIndex]);
 
@@ -226,6 +254,7 @@ function Dashboard() {
       }, 10000);
     }
   };
+
   // =============================================================================================
 
   return (
@@ -238,9 +267,8 @@ function Dashboard() {
         {setting ? (
           <button
             id="setting-icon"
-            onClick={(e) => {
-              e.preventDefault();
-              setSetting(false);
+            onClick={() => {
+              setSetting(!setting);
             }}
           >
             <img id="settingIcon-img" src={settingIcon} alt="" />
@@ -273,7 +301,7 @@ function Dashboard() {
       ) : (
         <div id="keyboard-container">
           <Keyboard guessValue={guessValue} click={click} setClick={setClick} />
-          {solve ? (
+          {solvePage ? (
             <div>
               <Solve
                 switchScreen={switchScreen}
@@ -286,7 +314,7 @@ function Dashboard() {
               id="solveBtn-keyboard"
               onClick={(e) => {
                 e.preventDefault();
-                setSolve(true);
+                setSolvePage(true);
               }}
             >
               SoLVE THE PHRASE

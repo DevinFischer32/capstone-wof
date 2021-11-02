@@ -30,12 +30,8 @@ const SpinWheel = (props) => {
     window.addEventListener("resize", onWindowResize);
 
     const ambientLight = new THREE.AmbientLight("white", 1);
-    scene.add(ambientLight);
-
     const light1 = new THREE.PointLight(0xff0000, 0.5, 150);
-    const light2 = new THREE.PointLight(0x0000ff, 0.5, 150);
-
-    scene.add(light1, light2);
+    scene.add(ambientLight, light1);
 
     const length = 16 * 2;
     const width = 2.10644 * 2;
@@ -171,8 +167,8 @@ const SpinWheel = (props) => {
       const geometry = new THREE.ExtrudeGeometry(arrowPoint, extrudeSettings);
 
       const arrowMesh = new THREE.Mesh(geometry, [
-        new THREE.MeshPhongMaterial({ color: 0xffe111 }),
-        new THREE.MeshPhongMaterial({ color: 0xfea200 }),
+        new THREE.MeshStandardMaterial({ color: 0xffe111 }),
+        new THREE.MeshStandardMaterial({ color: 0xfea200 }),
       ]);
 
       arrowGroup.add(arrowMesh);
@@ -188,7 +184,6 @@ const SpinWheel = (props) => {
     scene.add(wheel, arrowGroup);
 
     camera.position.z = 20;
-    // camera.position.x = -10;
     camera.position.y = -20;
     camera.rotation.z = 3.14159;
     let totalRotation = 0.1309;
@@ -201,16 +196,12 @@ const SpinWheel = (props) => {
       light1.position.x = Math.cos(now) * 25;
       light1.position.z = Math.sin(now) * 25;
 
-      light2.position.y = -10;
-      light2.position.x = Math.sin(now) * 25;
-      light2.position.z = Math.cos(now) * 25;
-
       if (totalRotation > spinDeg) {
         wheel.rotation.z -= 0;
         totalRotation += 0;
       } else {
-        wheel.rotation.z -= 0.06;
-        totalRotation += 0.06;
+        wheel.rotation.z -= 0.05;
+        totalRotation += 0.05;
       }
       renderer.render(scene, camera);
     };
