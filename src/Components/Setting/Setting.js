@@ -19,7 +19,7 @@ export default function Setting(props) {
             setSetting(true);
           }}
         >
-          Game Rules
+          Game Rules How To Play
         </button>
         <button
           id="ruleBtn-back"

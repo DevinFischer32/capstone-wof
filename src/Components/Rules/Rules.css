@@ -19,11 +19,3 @@
   font-size: 2em;
   text-decoration: white underline 3px;
 }
-ol {
-  font-size: 1.5em;
-  margin: 1rem 0;
-}
-li {
-  margin: 0.5rem 0;
-  list-style: disc inside;
-}
