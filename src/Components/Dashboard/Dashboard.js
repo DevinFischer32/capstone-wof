@@ -137,6 +137,9 @@ function Dashboard() {
   // Solve Functions
   const switchScreen = () => {
     setSolvePage(!solvePage);
+    if (solvePage === true) {
+      setSpin(true);
+    }
   };
   const solveFn = (e) => {
     setsolveValue(e.target.value);
