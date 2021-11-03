@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Solve(props) {
-  const { switchScreen, solveFn, rightOrWrongSolve } = props;
+  const { switchScreen, solveFn, rightOrWrongSolve, message } = props;
   return (
     <div className="solve">
       <div className="header" id="solveHeader">
@@ -10,6 +10,7 @@ export default function Solve(props) {
           <button onClick={switchScreen}>Lose Turn</button>
         </div>
       </div>
+      <div id="solve-msg">{message}</div>
       <div id="input-solve-container">
         <form>
           <input
@@ -18,7 +19,8 @@ export default function Solve(props) {
             onChange={solveFn}
             autoComplete="off"
           />
-          <button onClick={rightOrWrongSolve} id="solveBtn">
+
+          <button onClick={rightOrWrongSolve} className="keysBtn" id="solveBtn">
             Solve Puzzle
           </button>
         </form>

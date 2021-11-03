@@ -8,6 +8,8 @@ body {
   background: linear-gradient(0deg, #5fd0e7, #90e0ef, #ade8f4, #caf0f8);
   background-size: 200% 200%;
   animation: gradient 7s ease infinite;
+  max-height: 100vh;
+  max-width: 100vw;
 }
 * {
   font-family: "wheeloffortune", sans-serif;
@@ -24,6 +26,7 @@ body {
 }
 
 .gameboard-container {
+  max-width: 100vw;
   height: 40vh;
   width: 100%;
   display: flex;
@@ -54,29 +57,6 @@ body {
   max-height: 100vh;
 }
 
-.spinBtn {
-  border-radius: 5px;
-  padding: 6px 25px;
-  font-size: 1.5em;
-  text-decoration: none;
-  margin: 20px;
-  color: #fff;
-  position: relative;
-  display: inline-block;
-}
-.spinBtn:active {
-  transform: translate(0px, 5px);
-  -webkit-transform: translate(0px, 5px);
-  box-shadow: 0px 1px 0px 0px;
-}
-.green {
-  background-color: #1ea45a;
-  box-shadow: 0px 5px 0px 0px #245235;
-}
-
-.green:hover {
-  background-color: #1ea57a;
-}
 #message {
   margin: auto;
   margin-bottom: 0.5rem;

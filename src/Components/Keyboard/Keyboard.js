@@ -8,7 +8,7 @@ export default function Keyboard(props) {
     <>
       <div className="keyboard">
         <button
-          className={click.A ? "keys vowel" : "displayNone"}
+          className={click.A ? "keys vowel keysBtn" : "displayNone"}
           value="A"
           onClick={(e) => {
             e.preventDefault();
@@ -19,7 +19,7 @@ export default function Keyboard(props) {
           A
         </button>
         <button
-          className={click.B ? "keys" : "displayNone"}
+          className={click.B ? "keys keysBtn" : "displayNone"}
           value="B"
           onClick={(e) => {
             e.preventDefault();
@@ -30,7 +30,7 @@ export default function Keyboard(props) {
           B
         </button>
         <button
-          className={click.C ? "keys" : "displayNone"}
+          className={click.C ? "keys keysBtn" : "displayNone"}
           value="C"
           onClick={(e) => {
             e.preventDefault();
@@ -41,7 +41,7 @@ export default function Keyboard(props) {
           C
         </button>
         <button
-          className={click.D ? "keys" : "displayNone"}
+          className={click.D ? "keys keysBtn" : "displayNone"}
           value="D"
           onClick={(e) => {
             e.preventDefault();
@@ -52,7 +52,7 @@ export default function Keyboard(props) {
           D
         </button>
         <button
-          className={click.E ? "keys vowel" : "displayNone"}
+          className={click.E ? "keys vowel keysBtn" : "displayNone"}
           value="E"
           onClick={(e) => {
             e.preventDefault();
@@ -63,7 +63,7 @@ export default function Keyboard(props) {
           E
         </button>
         <button
-          className={click.F ? "keys" : "displayNone"}
+          className={click.F ? "keys keysBtn" : "displayNone"}
           value="F"
           onClick={(e) => {
             e.preventDefault();
@@ -74,7 +74,7 @@ export default function Keyboard(props) {
           F
         </button>
         <button
-          className={click.G ? "keys" : "displayNone"}
+          className={click.G ? "keys keysBtn" : "displayNone"}
           value="G"
           onClick={(e) => {
             e.preventDefault();
@@ -85,7 +85,7 @@ export default function Keyboard(props) {
           G
         </button>
         <button
-          className={click.H ? "keys" : "displayNone"}
+          className={click.H ? "keys keysBtn" : "displayNone"}
           value="H"
           onClick={(e) => {
             e.preventDefault();
@@ -96,7 +96,7 @@ export default function Keyboard(props) {
           H
         </button>
         <button
-          className={click.I ? "keys vowel" : "displayNone"}
+          className={click.I ? "keys vowel keysBtn" : "displayNone"}
           value="I"
           onClick={(e) => {
             e.preventDefault();
@@ -107,7 +107,7 @@ export default function Keyboard(props) {
           I
         </button>
         <button
-          className={click.J ? "keys" : "displayNone"}
+          className={click.J ? "keys keysBtn" : "displayNone"}
           value="J"
           onClick={(e) => {
             e.preventDefault();
@@ -120,7 +120,7 @@ export default function Keyboard(props) {
       </div>
       <div className="keyboard">
         <button
-          className={click.K ? "keys" : "displayNone"}
+          className={click.K ? "keys keysBtn" : "displayNone"}
           value="K"
           onClick={(e) => {
             e.preventDefault();
@@ -131,7 +131,7 @@ export default function Keyboard(props) {
           K
         </button>
         <button
-          className={click.L ? "keys" : "displayNone"}
+          className={click.L ? "keys keysBtn" : "displayNone"}
           value="L"
           onClick={(e) => {
             e.preventDefault();
@@ -142,7 +142,7 @@ export default function Keyboard(props) {
           L
         </button>
         <button
-          className={click.M ? "keys" : "displayNone"}
+          className={click.M ? "keys keysBtn" : "displayNone"}
           value="M"
           onClick={(e) => {
             e.preventDefault();
@@ -153,7 +153,7 @@ export default function Keyboard(props) {
           M
         </button>
         <button
-          className={click.N ? "keys" : "displayNone"}
+          className={click.N ? "keys keysBtn" : "displayNone"}
           value="N"
           onClick={(e) => {
             e.preventDefault();
@@ -164,7 +164,7 @@ export default function Keyboard(props) {
           N
         </button>
         <button
-          className={click.O ? "keys vowel" : "displayNone"}
+          className={click.O ? "keys vowel keysBtn" : "displayNone"}
           value="O"
           onClick={(e) => {
             e.preventDefault();
@@ -175,7 +175,7 @@ export default function Keyboard(props) {
           o
         </button>
         <button
-          className={click.P ? "keys" : "displayNone"}
+          className={click.P ? "keys keysBtn" : "displayNone"}
           value="P"
           onClick={(e) => {
             e.preventDefault();
@@ -186,7 +186,7 @@ export default function Keyboard(props) {
           P
         </button>
         <button
-          className={click.Q ? "keys" : "displayNone"}
+          className={click.Q ? "keys keysBtn" : "displayNone"}
           value="Q"
           onClick={(e) => {
             e.preventDefault();
@@ -198,7 +198,7 @@ export default function Keyboard(props) {
           Q
         </button>
         <button
-          className={click.R ? "keys" : "displayNone"}
+          className={click.R ? "keys keysBtn" : "displayNone"}
           value="R"
           onClick={(e) => {
             e.preventDefault();
@@ -210,7 +210,7 @@ export default function Keyboard(props) {
           R
         </button>
         <button
-          className={click.S ? "keys" : "displayNone"}
+          className={click.S ? "keys keysBtn" : "displayNone"}
           value="S"
           onClick={(e) => {
             e.preventDefault();
@@ -224,7 +224,7 @@ export default function Keyboard(props) {
       </div>
       <div className="keyboard">
         <button
-          className={click.T ? "keys" : "displayNone"}
+          className={click.T ? "keys keysBtn" : "displayNone"}
           value="T"
           onClick={(e) => {
             e.preventDefault();
@@ -235,7 +235,7 @@ export default function Keyboard(props) {
           T
         </button>
         <button
-          className={click.U ? "keys vowel" : "displayNone"}
+          className={click.U ? " vowel keysBtn" : "displayNone"}
           value="U"
           onClick={(e) => {
             e.preventDefault();
@@ -246,7 +246,7 @@ export default function Keyboard(props) {
           U
         </button>
         <button
-          className={click.V ? "keys" : "displayNone"}
+          className={click.V ? "keys keysBtn" : "displayNone"}
           value="V"
           onClick={(e) => {
             e.preventDefault();
@@ -257,7 +257,7 @@ export default function Keyboard(props) {
           V
         </button>
         <button
-          className={click.W ? "keys" : "displayNone"}
+          className={click.W ? "keys keysBtn" : "displayNone"}
           value="W"
           onClick={(e) => {
             e.preventDefault();
@@ -268,7 +268,7 @@ export default function Keyboard(props) {
           W
         </button>
         <button
-          className={click.X ? "keys" : "displayNone"}
+          className={click.X ? "keys keysBtn" : "displayNone"}
           value="X"
           onClick={(e) => {
             e.preventDefault();
@@ -279,7 +279,7 @@ export default function Keyboard(props) {
           X
         </button>
         <button
-          className={click.Y ? "keys" : "displayNone"}
+          className={click.Y ? "keys keysBtn" : "displayNone"}
           value="Y"
           onClick={(e) => {
             e.preventDefault();
@@ -290,7 +290,7 @@ export default function Keyboard(props) {
           Y
         </button>
         <button
-          className={click.Z ? "keys" : "displayNone"}
+          className={click.Z ? "keys keysBtn" : "displayNone"}
           value="Z"
           onClick={(e) => {
             e.preventDefault();

@@ -35,6 +35,10 @@
   width: 2rem;
 }
 #spinBtn {
-  width: 10rem;
   height: 4rem;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 8rem 2.5rem;
 }

@@ -40,6 +40,7 @@
   color: #f8f9fa;
   font-size: 3em;
   margin: auto;
+  -webkit-text-stroke: 2px black;
 }
 
 #input-solve-container,
@@ -51,7 +52,7 @@
   text-align: center;
 }
 #solveBtn {
-  width: 5rem;
+  width: 10rem;
   border-radius: 1rem;
   padding: 0.25rem;
   margin: 0.5rem;
@@ -65,4 +66,10 @@
   border: 2px solid black;
   color: black;
   font-size: 1.5em;
+}
+#solve-msg {
+  color: #f8f9fa;
+  font-size: 3em;
+  max-height: 5rem;
+  margin-bottom: 2rem;
 }

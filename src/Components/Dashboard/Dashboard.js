@@ -92,6 +92,8 @@ function Dashboard() {
     setVisableArr([]);
     setbank(0);
     setSpin(true);
+    setmessage("");
+    setSolvePage(false);
     setClick({
       A: true,
       B: true,
@@ -155,14 +157,17 @@ function Dashboard() {
     finalPhrase = finalPhrase.toLowerCase();
     if (solveValue === null || check !== finalPhrase) {
       setmessage("Time to spin again");
-      setSolvePage(false);
-      setSpin(true);
+      setTimeout(() => {
+        setSolvePage(false);
+        setSpin(true);
+        setmessage("");
+      }, 1500);
     } else {
       setbank(bank + 2000);
       setmessage("Correct");
       setTimeout(() => {
         resetGame();
-      }, 1500);
+      }, 2500);
     }
   };
 
@@ -195,7 +200,11 @@ function Dashboard() {
         if (newGuess.match(vowels) && bank >= 250) {
           await setVisableArr([...visableArr, newGuess]);
           setbank(bank + vowelCost);
-          setmessage("Letter Revealed");
+          if (letterQuantity === 1) {
+            setmessage(`${letterQuantity} ${" "} ${newGuess}  Revealed`);
+          } else {
+            setmessage(`${letterQuantity} ${" "} ${newGuess}'s  Revealed`);
+          }
           setTimeout(() => {
             setmessage("");
           }, 1000);
@@ -203,7 +212,11 @@ function Dashboard() {
           await setVisableArr([...visableArr, newGuess]);
           let bankSetAmount = spinAmount * letterQuantity;
           setbank(bank + bankSetAmount);
-          setmessage("Letter Revealed");
+          if (letterQuantity === 1) {
+            setmessage(`${letterQuantity} ${" "} ${newGuess}  Revealed`);
+          } else {
+            setmessage(`${letterQuantity} ${" "} ${newGuess}'s  Revealed`);
+          }
           setTimeout(() => {
             setmessage("");
           }, 1000);
@@ -280,6 +293,7 @@ function Dashboard() {
       }, 6500);
     }
   };
+  console.log(gameObject.word);
   // =============================================================================================
   return (
     <div className="page">
@@ -346,10 +360,12 @@ function Dashboard() {
                     switchScreen={switchScreen}
                     solveFn={solveFn}
                     rightOrWrongSolve={rightOrWrongSolve}
+                    message={message}
                   />
                 </div>
               ) : (
                 <button
+                  className="keysBtn"
                   id="solveBtn-keyboard"
                   onClick={(e) => {
                     e.preventDefault();
