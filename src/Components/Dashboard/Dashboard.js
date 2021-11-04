@@ -293,7 +293,6 @@ function Dashboard() {
       }, 6500);
     }
   };
-  console.log(gameObject.word);
   // =============================================================================================
   return (
     <div className="page">
@@ -324,7 +323,9 @@ function Dashboard() {
         />
       </div>
 
-      {spin ? null : <div id="message">{message}</div>}
+      {solvePage ? null : (
+        <>{spin ? null : <div id="message">{message}</div>}</>
+      )}
 
       {rule ? null : (
         <>

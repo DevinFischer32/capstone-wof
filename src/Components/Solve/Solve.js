@@ -1,20 +1,22 @@
 import React from "react";
 
 export default function Solve(props) {
-  const { switchScreen, solveFn, rightOrWrongSolve, message } = props;
+  const { solveFn, rightOrWrongSolve, message } = props;
+  // switchScreen
   return (
     <div className="solve">
       <div className="header" id="solveHeader">
         <h1 id="solve-title">Solve The Phrase</h1>
-        <div className="top-right">
+        {/* <div className="top-right">
           <button onClick={switchScreen}>Lose Turn</button>
-        </div>
+        </div> */}
       </div>
       <div id="solve-msg">{message}</div>
       <div id="input-solve-container">
         <form>
           <input
             id="solveInput"
+            minLength="1"
             type="text"
             onChange={solveFn}
             autoComplete="off"

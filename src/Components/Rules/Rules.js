@@ -9,14 +9,15 @@ export default function Rules() {
           <li>Vowels cost $250 flat fee.</li>
           <li>
             Solving the Phrase using the solve feature rewards $2000 for correct
-            anwsers.
+            anwser.
           </li>
           <li>
             Solving the Phrase using the Guessing Feature rewards spin amount
             per Uncovered Letter.
           </li>
           <li>
-            Bankrupt sets your Bank Account to 0 and then lets you respin.
+            Bankrupt sets your Bank Account to $0 and then you'll be redirected
+            to Spin agian.
           </li>
           <li>
             Free play allows you to get vowels for free and consonant reward

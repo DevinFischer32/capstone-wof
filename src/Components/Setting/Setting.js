@@ -9,10 +9,12 @@ export default function Setting(props) {
       <div className="column settingStyle">
         <h1>Settings</h1>
 
-        <button onClick={logout} id="logoutBtn">
+        <button onClick={logout} id="logoutBtn" className="green settingBtn">
           Logout
         </button>
         <button
+          className="green settingBtn"
+          id="rulesBtn"
           onClick={() => {
             setRules(!rule);
             setSetting(true);
@@ -21,6 +23,7 @@ export default function Setting(props) {
           Game Rules How To Play
         </button>
         <button
+          className="green settingBtn"
           id="ruleBtn-back"
           onClick={() => {
             setSetting(true);

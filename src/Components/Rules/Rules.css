@@ -17,7 +17,9 @@
 }
 .GR {
   font-size: 2.25em;
-  text-decoration: white underline 3px;
+  color: #f8f9fa;
+  text-decoration: #000000 underline 4px;
+  -webkit-text-stroke: 2px black;
 }
 #htp {
   margin-top: 2rem;
@@ -26,7 +28,8 @@ ul {
   margin: 1rem 0;
 }
 li {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   font-size: 1.5em;
   text-align: center;
   margin: 0.75rem 0;

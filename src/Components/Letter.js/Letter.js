@@ -4,7 +4,13 @@ export default function Letter({ letter, index, visable }) {
   const singleQuote = "'";
   const dash = "-";
   const space = " ";
-  let punc = letter === singleQuote || letter === dash;
+  const exp = "!";
+  const quote = "?";
+  let punc =
+    letter === singleQuote ||
+    letter === dash ||
+    letter === exp ||
+    letter === quote;
   let puncSpace = letter === space;
 
   return (

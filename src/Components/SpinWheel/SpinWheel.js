@@ -201,8 +201,8 @@ const SpinWheel = (props) => {
         wheel.rotation.z -= 0;
         totalRotation += 0;
       } else {
-        wheel.rotation.z -= 0.05;
-        totalRotation += 0.05;
+        wheel.rotation.z -= 0.06;
+        totalRotation += 0.06;
       }
       renderer.render(scene, camera);
     };

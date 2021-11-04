@@ -8,6 +8,7 @@
   right: 0;
   width: 15rem;
   height: 10vh;
+  max-height: 13vh;
   z-index: 1;
   color: white;
 }
@@ -18,7 +19,7 @@
   border: 2px solid black;
   margin: 0.2rem;
   padding: 0.2rem;
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 .bank {
   position: absolute;
