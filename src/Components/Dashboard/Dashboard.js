@@ -276,21 +276,21 @@ function Dashboard() {
         setspinBtn(true);
         setbank(0);
         setSpinDeg(0);
-      }, 6500);
+      }, 7500);
     } else if (spinIndex === 22) {
       setTimeout(() => {
         setspinBtn(true);
         setSpin(false);
         setSpinDeg(0);
         setVowelCost(0);
-      }, 6500);
+      }, 7500);
     } else {
       setTimeout(() => {
         setspinBtn(true);
         setVowelCost(-250);
         setSpin(false);
         setSpinDeg(0);
-      }, 6500);
+      }, 7500);
     }
   };
   // =============================================================================================
