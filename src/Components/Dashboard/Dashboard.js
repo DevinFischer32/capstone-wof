@@ -171,8 +171,8 @@ function Dashboard() {
     }
   };
 
-  let punc = "'" || "-" || "!" || "?";
-  let beforeCheckKey = [...splitWord].join("").replace(punc, "");
+  let aword = [...splitWord].join("");
+  let beforeCheckKey = aword.replace(/['?!-]/g, "");
   let checkKey = [...new Set(beforeCheckKey)].sort().join("");
   checkKey = checkKey.replace(" ", "");
   let checkValue = "placeholder";
