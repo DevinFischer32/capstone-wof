@@ -171,7 +171,7 @@ function Dashboard() {
     }
   };
 
-  let punc = "'" || "-";
+  let punc = "'" || "-" || "!" || "?";
   let beforeCheckKey = [...splitWord].join("").replace(punc, "");
   let checkKey = [...new Set(beforeCheckKey)].sort().join("");
   checkKey = checkKey.replace(" ", "");
