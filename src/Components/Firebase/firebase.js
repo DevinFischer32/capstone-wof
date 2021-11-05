@@ -108,8 +108,7 @@ const logout = () => {
 
 const randomGamePhrase = async () => {
   try {
-    // const id = Math.floor(Math.random() * 89);
-    let id = 89;
+    const id = Math.floor(Math.random() * 89);
     let foundWord;
     const query = await db.collection("words").where("id", "==", id).get();
     query.forEach((doc) => {
