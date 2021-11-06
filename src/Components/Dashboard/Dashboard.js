@@ -148,32 +148,35 @@ function Dashboard() {
     setsolveValue(e.target.value);
   };
 
-  const rightOrWrongSolve = (e) => {
-    e.preventDefault();
-    let noPunc = solveValue.match(/[a-zA-Z ]/g).join("");
-    console.log(noPunc);
-    let check = noPunc.toLowerCase();
-    console.log(check, "1");
-    check = check.replace(/\s{2,}/g, " ");
-    console.log(check, "2");
-    let phrase = gameObject.word;
-    let finalPhrase = phrase.match(/[a-zA-Z ]/g).join("");
-
-    finalPhrase = finalPhrase.toLowerCase();
-    console.log(finalPhrase, "final");
-    if (solveValue === null || check !== finalPhrase) {
-      setmessage("Time to spin again");
-      setTimeout(() => {
-        setSolvePage(false);
-        setSpin(true);
-        setmessage("");
-      }, 1500);
+  const rightOrWrongSolve = () => {
+    if (solveValue.length <= 0) {
+      return;
     } else {
-      setbank(bank + 2000);
-      setmessage("Correct");
-      setTimeout(() => {
-        resetGame();
-      }, 2500);
+      let noPunc = solveValue.match(/[a-zA-Z ]/g).join("");
+      console.log(noPunc);
+      let check = noPunc.toLowerCase();
+      console.log(check, "1");
+      check = check.replace(/\s{2,}/g, " ");
+      console.log(check, "2");
+      let phrase = gameObject.word;
+      let finalPhrase = phrase.match(/[a-zA-Z ]/g).join("");
+
+      finalPhrase = finalPhrase.toLowerCase();
+      console.log(finalPhrase, "final");
+      if (solveValue === null || check !== finalPhrase) {
+        setmessage("Time to spin again");
+        setTimeout(() => {
+          setSolvePage(false);
+          setSpin(true);
+          setmessage("");
+        }, 1500);
+      } else {
+        setbank(bank + 2000);
+        setmessage("Correct");
+        setTimeout(() => {
+          resetGame();
+        }, 2500);
+      }
     }
   };
 
@@ -371,6 +374,7 @@ function Dashboard() {
                 click={click}
                 setClick={setClick}
               />
+
               {solvePage ? (
                 <div>
                   <Solve
@@ -379,18 +383,27 @@ function Dashboard() {
                     rightOrWrongSolve={rightOrWrongSolve}
                     message={message}
                   />
+                  <div className="flex">
+                    <div id="spacer-rightsides"></div>
+                    {rule ? null : <Bank name={name} bank={bank} />}
+                  </div>
                 </div>
               ) : (
-                <button
-                  className="keysBtn"
-                  id="solveBtn-keyboard"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSolvePage(true);
-                  }}
-                >
-                  SoLVE THE PHRASE
-                </button>
+                <div id="solve-bank">
+                  <div id="bank-div-spacer1"></div>
+                  <button
+                    className="keysBtn"
+                    id="solveBtn-keyboard"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setSolvePage(true);
+                    }}
+                  >
+                    SoLVE THE PHRASE
+                  </button>
+                  <div id="bank-div-spacer2"></div>
+                  {rule ? null : <Bank name={name} bank={bank} />}
+                </div>
               )}
             </div>
           )}

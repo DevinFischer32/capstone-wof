@@ -25,10 +25,22 @@
   border-radius: 3px;
   font-size: 1.5em;
 }
+#bank-div-spacer1 {
+  width: 35vw;
+}
+#bank-div-spacer2 {
+  width: 18vw;
+}
+#solve-bank {
+  display: flex;
+  justify-content: space-between;
+}
 .spinBtn {
   border-radius: 5px;
   padding: 6px 25px;
-  font-size: 1.5em;
+  font-size: 2.25em;
+  height: 10vh;
+  width: 15vw;
   text-decoration: none;
   border: black 2px solid;
   color: #f8f9fa;

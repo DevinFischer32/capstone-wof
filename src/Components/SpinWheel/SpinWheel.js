@@ -31,8 +31,7 @@ const SpinWheel = (props) => {
     window.addEventListener("resize", onWindowResize);
 
     const ambientLight = new THREE.AmbientLight("white", 1);
-    const light1 = new THREE.PointLight(0xff0000, 0.5, 150);
-    scene.add(ambientLight, light1);
+    scene.add(ambientLight);
 
     const length = 16 * 2;
     const width = 2.10644 * 2;
@@ -191,11 +190,6 @@ const SpinWheel = (props) => {
 
     let animate = function () {
       requestAnimationFrame(animate);
-
-      const now = Date.now() / 1000;
-      light1.position.y = -10;
-      light1.position.x = Math.cos(now) * 25;
-      light1.position.z = Math.sin(now) * 25;
 
       if (totalRotation > spinDeg) {
         wheel.rotation.z -= 0;
