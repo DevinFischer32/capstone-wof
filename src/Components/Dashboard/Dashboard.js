@@ -304,23 +304,31 @@ function Dashboard() {
     <div className="page">
       {rule ? <Rules setRules={setRules} /> : null}
       <div className="header">
-        <div id="title-container">
-          <h1 id="title">WHEEL OF FoRTUNE</h1>
+        <div id="title-container" className="flex-header">
+          <div id="spacer"></div>
+          <div id="title">
+            <h1>WHEEL OF FoRTUNE</h1>
+          </div>
+          <div id="setting-div">
+            {setting ? (
+              <button
+                id="setting-icon"
+                onClick={() => {
+                  setSetting(!setting);
+                }}
+              >
+                <img id="settingIcon-img" src={settingIcon} alt="" />
+              </button>
+            ) : (
+              <Setting
+                setSetting={setSetting}
+                setRules={setRules}
+                rule={rule}
+              />
+            )}
+          </div>
         </div>
-        {setting ? (
-          <button
-            id="setting-icon"
-            onClick={() => {
-              setSetting(!setting);
-            }}
-          >
-            <img id="settingIcon-img" src={settingIcon} alt="" />
-          </button>
-        ) : (
-          <Setting setSetting={setSetting} setRules={setRules} rule={rule} />
-        )}
       </div>
-
       <div className="gameboard-container">
         <GameBoard
           gameObject={gameObject}
@@ -338,21 +346,23 @@ function Dashboard() {
           {spin ? (
             <div id="spinwheel-container">
               <SpinWheel spinDeg={spinDeg} />
-              {spinBtn ? (
-                <button
-                  id="spinBtn"
-                  className="spinBtn green"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    getSpinDeg();
-                    setTimeout(() => {
-                      setspinBtn(false);
-                    }, 500);
-                  }}
-                >
-                  Spin Wheel
-                </button>
-              ) : null}
+              <div id="right-div-spin">
+                {spinBtn ? (
+                  <button
+                    className="spinBtn green"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      getSpinDeg();
+                      setTimeout(() => {
+                        setspinBtn(false);
+                      }, 500);
+                    }}
+                  >
+                    Spin Wheel
+                  </button>
+                ) : null}
+                {rule ? null : <Bank name={name} bank={bank} />}
+              </div>
             </div>
           ) : (
             <div id="keyboard-container">
@@ -386,7 +396,6 @@ function Dashboard() {
           )}
         </>
       )}
-      {rule ? null : <Bank name={name} bank={bank} />}
     </div>
   );
 }

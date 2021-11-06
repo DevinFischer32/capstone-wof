@@ -1,18 +1,14 @@
 .setting-page {
   background-color: #f8f9fa;
-  width: 10rem;
   margin: 0.1rem;
-  height: max-content;
-  padding: 1rem 0;
+  height: 20vh;
+  padding: 1rem;
   border: black 2px solid;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 .settingStyle {
   align-items: center;
   height: 100%;
-  position: relative;
+  width: 100%;
 }
 
 .settingStyle h1 {
@@ -25,16 +21,26 @@
   margin: 0.25rem;
 }
 #rulesBtn {
-  border-radius: 1rem;
+  border-radius: 3px;
+  height: 4vh;
+  width: 100%;
   margin-top: 1rem;
 }
 #logoutBtn {
-  border-radius: 1rem;
+  border-radius: 3px;
+  height: 4vh;
   margin-top: 1rem;
+  width: 100%;
 }
 #ruleBtn-back {
-  border-radius: 1rem;
+  width: 100%;
+  border-radius: 3px;
   margin-top: 1rem;
+}
+#setting-div {
+  display: flex;
+  justify-content: flex-end;
+  width: 10vw;
 }
 #setting-icon {
   margin: 1.3rem;
@@ -43,9 +49,6 @@
   height: 3rem;
   width: 3rem;
   border: black 2px solid;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 .settingBtn {
   position: relative;

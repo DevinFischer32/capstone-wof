@@ -6,9 +6,11 @@ export default function Bank(props) {
   return (
     <div id="bank-container">
       <h6 id="username">{name}</h6>
-      <div className="flex-align">
-        <h5 id="dollarSign">$</h5>
-        <p className="bank">{bank}</p>
+      <div className="flex-bank">
+        <h5 id="dollarSign" className="bank-padding">
+          $
+        </h5>
+        <p className="bank bank-padding">{bank}</p>
       </div>
     </div>
   );
