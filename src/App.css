@@ -76,79 +76,13 @@ body {
 }
 
 /* Ipad Pro */
-@media screen and (max-width: 1366px) {
-  #title {
-    font-size: 2.75em;
-    width: 80vw;
-    justify-content: center;
-  }
-  .setting-page {
-    margin-top: 20vh;
-  }
+
+/* Ipad */
+@media screen and (max-width: 1024px) and (max-height: 768px) {
   #setting-icon {
     align-items: center;
-    width: 3.5vw;
-    height: 6vh;
-  }
-  .spinBtn {
-    font-size: 2em;
-    margin-top: 1vh;
-  }
-  #solveBtn-keyboard {
-    height: 5vh;
-    margin-top: 1vh;
-    font-size: 1.25em;
-  }
-  #message {
-    font-size: 1.75em;
-  }
-  #lastKeyboard {
-    margin-bottom: 1vh;
-  }
-  #messageHolder {
-    height: 6vh;
-  }
-  .displayNone {
-    height: 8vh;
     width: 5vw;
-    margin: 0 1.5vh;
-  }
-  .keysBtn {
-    height: 8vh;
-    width: 5vw;
-    margin: 0 1.5vh;
-  }
-  #keyboard-solve-bank {
-    margin-right: 1vh;
-  }
-
-  /* Bank Css */
-  #right-div-spin {
-    max-width: 15vw;
-    width: 15vw;
-    margin-right: 1vw;
-  }
-  #dollarSign {
-    font-size: 2.5em;
-  }
-  .bank {
-    font-size: 2em;
-  }
-  #bank-container {
-    height: 12vh;
-    width: 15vw;
-
-    margin: 1vw 1vw;
-  }
-  .bank-padding {
-    padding: 0.4vh;
-  }
-}
-@media screen and (max-width: 1024px) and (min-height: 768px) {
-  #setting-icon {
-    align-items: center;
-    width: 4.5vw;
-    height: 6vh;
+    height: 5vw;
   }
   #solve-title {
     font-size: 2.5em;
@@ -205,5 +139,61 @@ body {
   }
   .GR {
     font-size: 2.5em;
+  }
+}
+
+/* Ipad Pro*/
+@media screen and (max-width: 1367px) and (max-height: 1080px) {
+  #title {
+    font-size: 3.75em;
+  }
+  #setting-icon {
+    width: 4vw;
+    height: 4vw;
+    align-items: center;
+  }
+  #settingIcon-img {
+    width: 2.5rem;
+  }
+  .tile-border {
+    width: 2.75rem;
+    height: 3.75rem;
+  }
+  .tile-layout {
+    font-size: 1.25em;
+  }
+  #phraseType {
+    font-size: 2em;
+  }
+  #right-div-spin {
+    max-width: 20vw;
+    width: 20vw;
+    margin-right: 1vw;
+  }
+  #bank-container {
+    height: 12vh;
+    width: 20vw;
+    margin: 1vw 1vw;
+  }
+  .spinBtn {
+    font-size: 1.75em;
+    margin-top: 1vh;
+    width: 20vw;
+  }
+  .displayNone {
+    height: 8vh;
+    width: 6vw;
+    margin: 0 1.5vh;
+  }
+  .keysBtn {
+    height: 7vh;
+    width: 5vw;
+    margin: 0 1.5vh;
+  }
+  #solve-title {
+    font-size: 3.75em;
+  }
+  #spin-spacer {
+    height: 5vh;
   }
 }

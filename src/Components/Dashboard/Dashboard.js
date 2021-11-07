@@ -339,7 +339,7 @@ function Dashboard() {
           visableArr={visableArr}
         />
       </div>
-
+      <div id="spin-spacer"></div>
       {solvePage ? null : (
         <>
           {spin ? (
