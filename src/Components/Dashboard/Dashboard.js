@@ -341,7 +341,13 @@ function Dashboard() {
       </div>
 
       {solvePage ? null : (
-        <>{spin ? null : <div id="message">{message}</div>}</>
+        <>
+          {spin ? (
+            <div id="messageHolder"></div>
+          ) : (
+            <div id="message">{message}</div>
+          )}
+        </>
       )}
 
       {rule ? null : (
@@ -375,27 +381,29 @@ function Dashboard() {
                   click={click}
                   setClick={setClick}
                 />
-                {solvePage ? (
-                  <div>
-                    <Solve
-                      switchScreen={switchScreen}
-                      solveFn={solveFn}
-                      rightOrWrongSolve={rightOrWrongSolve}
-                      message={message}
-                    />
-                  </div>
-                ) : (
-                  <button
-                    className="keysBtn"
-                    id="solveBtn-keyboard"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setSolvePage(true);
-                    }}
-                  >
-                    SoLVE THE PHRASE
-                  </button>
-                )}
+                <div id="solveBtn-div">
+                  {solvePage ? (
+                    <div>
+                      <Solve
+                        switchScreen={switchScreen}
+                        solveFn={solveFn}
+                        rightOrWrongSolve={rightOrWrongSolve}
+                        message={message}
+                      />
+                    </div>
+                  ) : (
+                    <button
+                      className="keysBtn"
+                      id="solveBtn-keyboard"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setSolvePage(true);
+                      }}
+                    >
+                      SoLVE THE PHRASE
+                    </button>
+                  )}
+                </div>
               </div>
               <div id="keyboard-solve-bank">
                 <Bank name={name} bank={bank} />

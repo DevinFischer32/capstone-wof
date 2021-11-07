@@ -6,7 +6,7 @@ export default function Keyboard(props) {
 
   return (
     <>
-      <div className="keyboard">
+      <div>
         <button
           className={click.A ? "keys vowel keysBtn" : "displayNone"}
           value="A"
@@ -222,7 +222,7 @@ export default function Keyboard(props) {
           S
         </button>
       </div>
-      <div className="keyboard">
+      <div className="keyboard" id="lastKeyboard">
         <button
           className={click.T ? "keys keysBtn" : "displayNone"}
           value="T"
