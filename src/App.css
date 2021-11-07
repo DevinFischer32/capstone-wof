@@ -144,3 +144,66 @@ body {
     padding: 0.4vh;
   }
 }
+@media screen and (max-width: 1024px) and (min-height: 768px) {
+  #setting-icon {
+    align-items: center;
+    width: 4.5vw;
+    height: 6vh;
+  }
+  #solve-title {
+    font-size: 2.5em;
+  }
+  #right-div-spin {
+    max-width: 20vw;
+    width: 20vw;
+    margin-right: 1vw;
+  }
+  #bank-container {
+    height: 12vh;
+    width: 20vw;
+    margin: 1vw 1vw;
+  }
+  .spinBtn {
+    font-size: 1.75em;
+    margin-top: 1vh;
+    width: 20vw;
+  }
+  .displayNone {
+    height: 8vh;
+    width: 6vw;
+    margin: 0 1.5vh;
+  }
+  .keysBtn {
+    height: 8vh;
+    width: 6vw;
+    margin: 0 1.5vh;
+  }
+  .tile-border {
+    width: 2rem;
+    height: 3rem;
+  }
+  .tile-layout {
+    font-size: 0.75em;
+  }
+  #phraseType {
+    font-size: 1.75em;
+  }
+  #start-gameBtn {
+    margin-bottom: 5em;
+    width: 10em;
+    height: 2em;
+    font-size: 1.75em;
+  }
+  #username {
+    font-size: 1em;
+  }
+  ul {
+    margin: 0.5vh 0;
+  }
+  li {
+    font-size: 1.5em;
+  }
+  .GR {
+    font-size: 2.5em;
+  }
+}
