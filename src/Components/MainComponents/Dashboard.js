@@ -2,14 +2,14 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import { auth, db, randomGamePhrase } from "../Firebase/firebase";
-import Setting from "../Setting/Setting";
+import Setting from "../SecondaryComponents/Setting/Setting";
 import settingIcon from "../Logos/settings-icon.png";
-import Keyboard from "../Keyboard/Keyboard";
-import Bank from "../Bank/Bank";
-import SpinWheel from "../SpinWheel/SpinWheel";
-import GameBoard from "../GameBoard/GameBoard";
-import Solve from "../Solve/Solve";
-import Rules from "../Rules/Rules";
+import Keyboard from "../SecondaryComponents/Keyboard/Keyboard";
+import Bank from "../SecondaryComponents/Bank";
+import SpinWheel from "../Three.js/SpinWheel";
+import GameBoard from "./GameBoard";
+import Solve from "../Pages/Solve";
+import Rules from "../Pages/Rules";
 
 function Dashboard() {
   const [user, loading] = useAuthState(auth);
@@ -304,32 +304,26 @@ function Dashboard() {
   };
   // =============================================================================================
   return (
-    <div className="page">
+    <>
       {rule ? <Rules setRules={setRules} /> : null}
-      <div className="header">
-        <div id="title-container" className="flex-header">
-          <div id="spacer"></div>
-          <div id="title">
-            <h1>WHEEL OF FoRTUNE</h1>
-          </div>
-          <div id="setting-div">
-            {setting ? (
-              <button
-                id="setting-icon"
-                onClick={() => {
-                  setSetting(!setting);
-                }}
-              >
-                <img id="settingIcon-img" src={settingIcon} alt="" />
-              </button>
-            ) : (
-              <Setting
-                setSetting={setSetting}
-                setRules={setRules}
-                rule={rule}
-              />
-            )}
-          </div>
+      <div className="header flex">
+        <div id="spacer"></div>
+        <div id="title">
+          <h1>WHEEL OF FoRTUNE</h1>
+        </div>
+        <div id="setting-div">
+          {setting ? (
+            <button
+              id="setting-icon"
+              onClick={() => {
+                setSetting(!setting);
+              }}
+            >
+              <img id="settingIcon-img" src={settingIcon} alt="" />
+            </button>
+          ) : (
+            <Setting setSetting={setSetting} setRules={setRules} rule={rule} />
+          )}
         </div>
       </div>
       <div className="gameboard-container">
@@ -389,6 +383,8 @@ function Dashboard() {
                         solveFn={solveFn}
                         rightOrWrongSolve={rightOrWrongSolve}
                         message={message}
+                        name={name}
+                        bank={bank}
                       />
                     </div>
                   ) : (
@@ -405,14 +401,16 @@ function Dashboard() {
                   )}
                 </div>
               </div>
-              <div id="keyboard-solve-bank">
-                <Bank name={name} bank={bank} />
-              </div>
+              {solvePage ? null : (
+                <div id="keyboard-solve-bank">
+                  <Bank name={name} bank={bank} />
+                </div>
+              )}
             </>
           )}
         </>
       )}
-    </div>
+    </>
   );
 }
 export default Dashboard;

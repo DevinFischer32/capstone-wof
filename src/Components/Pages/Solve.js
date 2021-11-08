@@ -1,7 +1,7 @@
 import React from "react";
-
+import Bank from "../SecondaryComponents/Bank";
 export default function Solve(props) {
-  const { solveFn, rightOrWrongSolve, message } = props;
+  const { solveFn, rightOrWrongSolve, message, name, bank } = props;
   return (
     <>
       <div className="solve">
@@ -27,9 +27,13 @@ export default function Solve(props) {
               Solve Puzzle
             </button>
           </form>
-          <h2 className="rule-input-solve">Single Spacing Only</h2>
-          <h2 className="rule-input-solve">Spelling Important!</h2>
+          <h2 className="rule-input-solve">Spelling Is Important!</h2>
           <h2 className="rule-input-solve">Case Does Not Matter</h2>
+          <h2 className="rule-input-solve">Single Spacing Only</h2>
+        </div>
+        <div id="spacerSolve"></div>
+        <div id="solveBank">
+          <Bank name={name} bank={bank} />
         </div>
       </div>
     </>

@@ -3,8 +3,8 @@ import React from "react";
 export default function Rules() {
   return (
     <div id="rules-container">
-      <div className="center-column">
-        <h1 className="GR">Game Rules</h1>
+      <div className="rules-column">
+        <h1 className="rules-title">Game Rules</h1>
         <ul>
           <li>Vowels cost $250 flat fee.</li>
           <li>
@@ -25,9 +25,7 @@ export default function Rules() {
           </li>
           <li>Spaces, Dashes, and Single Quotes are exposed on the Board.</li>
         </ul>
-        <h1 className="GR" id="htp">
-          How to Play
-        </h1>
+        <h1 className="rules-title">How to Play</h1>
         <ul>
           <li>Click Spin Wheel and Wait for wheel to spin.</li>
           <li>Guess a Letter that Could be in the Phrase.</li>

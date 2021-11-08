@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Login from "../Firebase/Login/Login";
 import Register from "../Firebase/Register/Register";
 import Reset from "../Firebase/Reset/Reset";
-import LandingPageTHREE from "../LandingPageTHREE/LandingPageTHREE";
+import LandingPageTHREE from "../Three.js/LandingPageTHREE";
 
 export default function LandingPage() {
   const [login, setlogin] = useState(false);

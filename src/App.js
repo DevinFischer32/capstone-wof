@@ -1,15 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Dashboard from "./Components/Dashboard/Dashboard";
-import LandingPage from "./Components/LandingPage/LandingPage";
-import "./CSSReset.css";
-import "./Components/GameBoard/GameBoard.css";
-import "./Components/Dashboard/Dashboard.css";
-import "./Components/Keyboard/Keyboard.css";
-import "./Components/Setting/Setting.css";
-import "./Components/Solve/Solve.css";
-import "./Components/LandingPage/LandingPage.css";
-import "./Components/Rules/Rules.css";
-import "./App.css";
+import Dashboard from "./Components/MainComponents/Dashboard";
+import LandingPage from "./Components/Pages/LandingPage";
+import "./CSS/CSSReset.css";
+import "./CSS/App.css";
 
 function App() {
   return (

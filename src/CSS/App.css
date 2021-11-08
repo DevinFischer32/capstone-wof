@@ -1,0 +1,494 @@
+@font-face {
+  font-family: "wheeloffortune";
+  src: url(../Components/Logos/SF\ Fortune\ Wheel.ttf);
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+body {
+  font-family: "wheeloffortune", sans-serif;
+  background: linear-gradient(0deg, #5fd0e7, #90e0ef, #ade8f4, #caf0f8);
+  background-size: 200% 200%;
+  animation: gradient 7s ease infinite;
+  max-height: 100vh;
+  max-width: 100vw;
+  height: 100vh;
+  width: 100vw;
+}
+* {
+  font-family: "wheeloffortune", sans-serif;
+  letter-spacing: 0.08rem;
+  cursor: pointer;
+}
+/* ===================================================== */
+/* LAYOUT CSS  */
+.flex {
+  display: flex;
+}
+/* Landing Page */
+#landingPage-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #2d20a9, #362071, #6b4075, #ac6ca1);
+  background-size: 300% 300%;
+  animation: gradient 7s ease infinite;
+  height: 100vh;
+}
+#container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.btn {
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 2.5em;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: black 2px;
+}
+#start-gameBtn {
+  margin-bottom: 9vw;
+  width: 20vw;
+  height: 6vw;
+}
+/* ===================================================== */
+/* All Header CSS */
+.header {
+  background: linear-gradient(180deg, #245235, #1ea57a);
+  border-bottom: black 2px solid;
+  height: 9.8vh;
+  max-height: 10vh;
+  width: 100vw;
+}
+#spacer {
+  width: 10vw;
+  height: 10vh;
+}
+#title {
+  color: white;
+  font-size: 4em;
+  margin: auto;
+  -webkit-text-stroke: 2px black;
+}
+/* ===================================================== */
+/* Settings CSS */
+#setting-div {
+  align-items: center;
+  display: flex;
+  height: 10vh;
+  justify-content: flex-end;
+  width: 10vw;
+}
+#setting-icon {
+  background-color: #f8f9fa;
+  border: black 3px solid;
+  border-radius: 50%;
+  height: 3vw;
+  margin-right: 1vw;
+  width: 3vw;
+  z-index: 2;
+}
+#settingIcon-img {
+  width: 2vw;
+  height: 2vw;
+}
+/* ===================================================== */
+/* Open Settings CSS */
+.setting-page {
+  background-color: #f8f9fa;
+  border: black 2px solid;
+  position: relative;
+  width: 10vw;
+  height: 12vw;
+  position: absolute;
+  top: 0;
+  margin: 1vw;
+  z-index: 2;
+}
+.settingStyle h1 {
+  text-align: center;
+  font-size: 1.75em;
+  margin: 0.25vw;
+  text-decoration: black 3px underline solid;
+}
+.settingBtn {
+  width: 9vw;
+  height: 2vw;
+  font-size: 1em;
+  margin: 0.5vw;
+  color: #f8f9fa;
+  -webkit-text-stroke: black 2px;
+  position: relative;
+  letter-spacing: 0.2vh;
+  display: inline-block;
+  box-shadow: 0px 3px 0px 0px darkslategray;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+.settingBtn:active {
+  transform: translate(0px, 3px);
+  -webkit-transform: translate(0px, 3px);
+  box-shadow: 0px 1px 0px 0px;
+}
+#rules-htpBtn {
+  height: 3vw;
+}
+/* ===================================================== */
+/* Rules Page */
+#rules-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  background: linear-gradient(0deg, #6c757d, #adb5bd, #ced4da, #dee2e6);
+}
+.rules-column {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vw;
+}
+.rules-title {
+  font-size: 3.25em;
+  color: #f8f9fa;
+  border-bottom: black 5px solid;
+  -webkit-text-stroke: 4px black;
+}
+ul {
+  margin: 1vw 0;
+}
+li {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 2em;
+  text-align: center;
+  margin: 1vw 0;
+}
+/* ===================================================== */
+/* GamePlay Word Section */
+.gameboard-container {
+  max-width: 100vw;
+  width: 100vw;
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#game-board {
+  max-width: 100vw;
+  background: #1ea57a;
+  border: #005df6 4px solid;
+}
+#board-container {
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1vw;
+}
+#board {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tile-border {
+  width: 3vw;
+  height: 4vw;
+  border: 8px solid black;
+  background-color: #f8f9fa;
+  margin: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hidden {
+  display: none;
+}
+.visable {
+  margin: 0.1rem;
+  background-color: #f8f9fa;
+  color: black;
+  width: 3vw;
+  height: 4vw;
+  font-size: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* ===================================================== */
+/* .tile-layout is letter inside */
+#phraseType {
+  color: white;
+  font-size: 2.75em;
+  -webkit-text-stroke: 2px black;
+}
+.space {
+  background-image: url("../Components/Logos/tile.jpg");
+  width: 3vw;
+  height: 4vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* ===================================================== */
+/* Message holder and Message */
+#messageHolder {
+  height: 5vh;
+}
+#message {
+  text-align: center;
+  font-size: 2em;
+  height: 5vh;
+}
+/* ===================================================== */
+/* Spin Wheel Area */
+#spinwheel-container {
+  width: 100%;
+  height: 50vh;
+  max-height: 50vh;
+  display: flex;
+  justify-content: space-between;
+}
+#right-div-spin {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+/* ===================================================== */
+/* All Spin Btn CSS */
+.spinBtn {
+  margin: 0 1vw;
+  border-radius: 3px;
+  padding: 6px 20px;
+  font-size: 2.5em;
+  height: 10vh;
+  width: 15vw;
+  border: black 3px solid;
+  color: #f8f9fa;
+  position: relative;
+  -webkit-text-stroke: 3px black;
+  box-shadow: 0px 7px 0px 0px #245235;
+}
+.spinBtn:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+}
+.green,
+.green:hover {
+  background-color: #1ea45a;
+}
+/* ===================================================== */
+/* BANK CSS */
+#bank-container {
+  background: linear-gradient(360deg, #ff7b00, #ffa200, #ffb700, #ffdd00);
+  border: 3px solid black;
+  -webkit-text-stroke: 2px black;
+  justify-content: center;
+  height: 10vh;
+  z-index: 1;
+  color: white;
+  margin: 1vw;
+  width: 15vw;
+}
+#username {
+  align-items: center;
+  background-color: #ff7b00;
+  border: 2px solid black;
+  display: flex;
+  font-size: 1.55em;
+  height: 3vh;
+  margin: 3px;
+  padding: 3px;
+}
+.flex-bank {
+  display: flex;
+  justify-content: space-between;
+}
+#dollarSign {
+  font-size: 2.75em;
+  padding-top: 0.5vh;
+  margin-left: 1vw;
+  font-weight: 600;
+  color: black;
+  -webkit-text-stroke: 0.5px white;
+}
+.bank {
+  display: flex;
+  margin-right: 1vw;
+  padding-top: 0.5vh;
+  align-items: center;
+  font-size: 2.75em;
+}
+/* KEYBOARD */
+#keyboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 35vh;
+}
+.keyboard {
+  margin-top: 1vw;
+}
+.keys {
+  background-color: #f8f9fa;
+}
+.keysBtn {
+  position: relative;
+  display: inline-block;
+  box-shadow: 0px 6px 0px 0px darkslategray;
+  width: 4vw;
+  height: 4vw;
+  border: 3px solid black;
+  margin: 0 1vw;
+  border-radius: 3px;
+  font-size: 2.25em;
+}
+.keysBtn:active {
+  transform: translate(0px, 6px);
+  -webkit-transform: translate(0px, 6px);
+  box-shadow: 0px 1px 0px 0px;
+}
+.displayNone {
+  width: 4vw;
+  height: 4vw;
+  margin: 0 1vw;
+  border: 3px solid black;
+  background: transparent;
+  border-radius: 3px;
+  font-size: 2.25em;
+}
+.vowel {
+  background-color: #1ea57a;
+  color: #f8f9fa;
+  -webkit-text-stroke: 2px black;
+}
+/* SOLVE BTN */
+
+#solveBtn-keyboard {
+  width: 25vw;
+  height: 5vh;
+  border-radius: 3px;
+  margin-top: 1vh;
+  background-color: #f8f9fa;
+  border: 3px solid black;
+  color: black;
+  font-size: 2em;
+}
+/* ===================================================== */
+/* BANK DIV FOR KEYBOARD */
+#keyboard-solve-bank {
+  width: 100vw;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+/* ===================================================== */
+/* Solve */
+#spacerSolve {
+  height: 20vh;
+  width: 100vw;
+}
+.solve {
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.85);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#solveHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: black 4px solid;
+}
+#solveBank {
+  width: 100vw;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#solve-title {
+  color: #f8f9fa;
+  font-size: 4em;
+  margin: auto;
+  -webkit-text-stroke: 2px black;
+}
+#solve-msg {
+  text-align: center;
+  color: #f8f9fa;
+  -webkit-text-stroke: 2px black;
+  font-size: 3.75em;
+  height: 15vh;
+  padding: 2rem;
+  margin: 3rem;
+}
+#input-solve-container,
+#input-solve-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 50vw;
+  height: 25vh;
+}
+#solveInput {
+  font-family: "Poppins", sans-serif;
+  color: black;
+  font-weight: 800;
+  font-size: 1.75em;
+  width: 20vw;
+  height: 4vh;
+  margin-bottom: 1vh;
+}
+#solveBtn {
+  width: 18vw;
+  height: 7vh;
+  font-size: 2em;
+  border-radius: 3px;
+  padding: 0.25rem;
+  margin: 0.5rem;
+  background-color: #1ea57a;
+  color: #f8f9fa;
+  -webkit-text-stroke: 2px black;
+}
+.rule-input-solve {
+  color: #f8f9fa;
+  border-bottom: #1ea57a solid 3px;
+  font-size: 2em;
+  margin-top: 1vh;
+  padding: 0.25rem;
+}
+/* ===================================================== */

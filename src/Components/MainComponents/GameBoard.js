@@ -1,5 +1,5 @@
 import React from "react";
-import Letter from "../Letter.js/Letter";
+import Letter from "../SecondaryComponents/Keyboard/Letter";
 
 export default function GameBoard(props) {
   let { gameObject, splitWord, visableArr } = props;

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Bank.css";
 
 export default function Bank(props) {
   const { name, bank } = props;
