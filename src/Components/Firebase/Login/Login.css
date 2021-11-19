@@ -28,7 +28,7 @@
 }
 .login-textBox {
   color: black;
-  font-size: 18px;
+  font-size: 20px;
   padding: 10px;
   font-family: "Poppins", sans-serif;
 }
@@ -36,7 +36,7 @@
   background-color: black;
   border: none;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   padding: 10px;
 }
 
@@ -46,11 +46,12 @@
 
 .loginBtn-size {
   padding: 5px;
-  font-size: 1em;
+  font-size: 18px;
 }
 /* Dont have a account div */
 #dhaA {
   color: black;
+  font-size: 16px;
 }
 
 ::placeholder {
