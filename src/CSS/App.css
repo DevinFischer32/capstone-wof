@@ -316,7 +316,7 @@ li {
   background: linear-gradient(360deg, #ff7b00, #ffa200, #ffb700, #ffdd00);
   border-radius: 3px;
   border: 3px solid black;
-  -webkit-text-stroke: 3px black;
+  -webkit-text-stroke: 2px black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
