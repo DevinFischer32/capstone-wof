@@ -159,16 +159,12 @@ function Dashboard() {
       }, 1500);
     } else {
       let noPunc = solveValue.match(/[a-zA-Z ]/g).join("");
-      console.log(noPunc);
       let check = noPunc.toLowerCase();
-      console.log(check, "1");
       check = check.replace(/\s{2,}/g, " ");
-      console.log(check, "2");
       let phrase = gameObject.word;
       let finalPhrase = phrase.match(/[a-zA-Z ]/g).join("");
 
       finalPhrase = finalPhrase.toLowerCase();
-      console.log(finalPhrase, "final");
       if (solveValue === null || check !== finalPhrase) {
         setmessage("Time to spin again");
         setTimeout(() => {
@@ -187,7 +183,7 @@ function Dashboard() {
   };
 
   let aword = [...splitWord].join("");
-  let beforeCheckKey = aword.replace(/['?!-]/g, "");
+  let beforeCheckKey = aword.replace(/['?!-,]/g, "");
   let checkKey = [...new Set(beforeCheckKey)].sort().join("");
   checkKey = checkKey.replace(" ", "");
   let checkValue = "placeholder";

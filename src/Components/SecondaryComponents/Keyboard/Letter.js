@@ -6,11 +6,13 @@ export default function Letter({ letter, index, visable }) {
   const space = " ";
   const exp = "!";
   const quote = "?";
+  const comma = ",";
   let punc =
     letter === singleQuote ||
     letter === dash ||
     letter === exp ||
-    letter === quote;
+    letter === quote ||
+    letter === comma;
   let puncSpace = letter === space;
 
   return (
