@@ -154,7 +154,8 @@ function Dashboard() {
       setmessage("No Value Entered");
       setTimeout(() => {
         setmessage("");
-        return;
+        setSolvePage(false);
+        setSpin(true);
       }, 1500);
     } else {
       let noPunc = solveValue.match(/[a-zA-Z ]/g).join("");
