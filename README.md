@@ -1,12 +1,20 @@
 # Wheel of Fortune
 
+### Table of Contents
+
+- [About The App](#About-the-App)
+- [Technologies](#Technologies)
+- [Screenshots](#Screenshots)
+- [Setup](#Setup)
+- [Approach](#Approach)
+
 ## Live Link
 
 - https://capstone-wof.web.app
 
 ## About the App
 
-Wheel of Fortune is a fun solo player game. Users can login to their accounts and spin the whell to play a round of Wheel of Fortune. The round is complete when the Hidden Phrase is revealed fully and a new word will generate.
+Wheel of Fortune is a fun solo player game. Users can log in to their accounts and spin the wheel to play a round of Wheel of Fortune. The round is complete when the Hidden Phrase is revealed fully and a new word will generate.
 
 ## Technologies
 
@@ -16,7 +24,7 @@ Wheel of Fortune is a fun solo player game. Users can login to their accounts an
 
 - Landing Page ![](ReadmePhoto/Homepage.PNG)
 - Login ![](ReadmePhoto/Login.PNG)
-- Rules Page ![](ReadmePhoto/Rules.PNG)'
+- Rules Page ![](ReadmePhoto/Rules.PNG)
 - Three.js Wheel ![](ReadmePhoto/Wheel.PNG)
 - KeyBoard Guessing ![](ReadmePhoto/Keyboard.PNG)
 - Solve Page ![](ReadmePhoto/SolvePage.PNG)
@@ -36,7 +44,9 @@ Create an Application where users create an account and can play a Wheel of Fort
 
 ### **MVP:**
 
-- Users can create an Account, which is stored in database.
-- Users will guess random word with just a hint of the word type and size.
-- App will display logged in players high score and current score.
+- Users can create an Account, which is stored in the database.
+- Users will guess the random word with just a hint of the word type and size.
+- App will display logged-in players' high scores and current scores.
 - Players will spin a wheel to get the price per revealed letter they get.
+
+[Top of Page](#Wheel-of-Fortune)
