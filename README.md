@@ -6,32 +6,33 @@
 
 ## About the App
 
-```
 Wheel of Fortune is a fun solo player game. Users can login to their accounts and spin the whell to play a round of Wheel of Fortune. The round is complete when the Hidden Phrase is revealed fully and a new word will generate.
-```
 
 ## Technologies
 
 `Firebase` | `Firestore` | `Firebase Auth` | `Express` | `React` | `NodeJS` | `Three.js` | `CSS`
 
+## Screenshots
+
+- Landing Page ![](src\Components\Logos\ReadmePhoto\Homepage.PNG)
+- Login ![](src\Components\Logos\ReadmePhoto\Login.PNG)
+- Rules Page ![](src\Components\Logos\ReadmePhoto\Rules.PNG)'
+- Three.js Wheel ![](src\Components\Logos\ReadmePhoto\Wheel.PNG)
+- KeyBoard Guessing ![](src\Components\Logos\ReadmePhoto\Keyboard.PNG)
+- Solve Page ![](src\Components\Logos\ReadmePhoto\SolvePage.PNG)
+
 ## Setup
 
-```
 - Download or Clone Repository
 - run npm install
-```
 
 ## Approach
 
-```
 I First Built a Figma to have the overall look that I wanted. I then moved over towards the checking/solving features and built them out fully. I left the Three.js Wheel and CSS for the end of the project.
-```
 
 ### **Pitch:**
 
-```
 Create an Application where users create an account and can play a Wheel of Fortune game.
-```
 
 ### **MVP:**
 
